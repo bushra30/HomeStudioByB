@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home Studio by B</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: #fff;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      padding: 6px 10px;
+      border-radius: 5px;
+    }
+    .nav-links a:hover, .nav-links .active {
+      background-color: #f2bfa3;
+      color: #000;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      background: linear-gradient(180deg, #000 70%, transparent);
+    }
+    .hero-logo {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .hero-logo span.b {
+      font-family: 'Inter', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+    }
+    .cta-box {
+      text-align: right;
+      margin-top: -3rem;
+      margin-right: 2rem;
+    }
+    .cta-box p {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+    .cta-button {
+      padding: 0.8rem 1.5rem;
+      background-color: #f2bfa3;
+      color: #000;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .cta-button:hover {
+      background-color: #e2a17e;
+    }
+
+    .video-section {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      margin: 2rem;
+    }
+    .video-section video {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+      animation: fadeIn 2s ease-in;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @media (max-width: 768px) {
+      .hero-logo {
+        flex-direction: column;
+      }
+      .cta-box {
+        text-align: center;
+        margin: 2rem 0 0;
+      }
+    }
+    .services-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+}
+
+.services-section h2 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.service-card {
+  background-color: #f3f0e9;
+  color: #000;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.service-card img {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+}
+
+.service-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.6;
+}
+/* projects css */
+
+
+.projects-section {
+  padding: 4rem 2rem;
+  background: #000;
+  color: #fff;
+  height: 300vh; /* Extended scroll space */
+  position: relative;
+}
+
+.projects-section h2 {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.project-wrapper {
+  position: relative;
+  /* max-width: 900px; */
+  margin: auto;
+  height: 180vh; /* Enough height for stacking */
+}
+
+.project-card {
+  background: #f3f0e9;
+  color: #000;
+  border-radius: 10px;
+  padding: 1rem;
+  position: sticky;
+  top: 100px;
+  width: 100%;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Layering for 3 cards */
+.project-card:nth-child(1) { z-index: 1; }
+.project-card:nth-child(2) { z-index: 2; }
+.project-card:nth-child(3) { z-index: 3; }
+
+/* Content styling (unchanged) */
+.project-card .tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-card .tags span {
+  background: #1e1e1e;
+  color: #fff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+  font-size: 0.75rem;
+}
+
+.project-card .content {
+  display: flex;
+  align-items: center; /* Center vertically */
+  gap: 2rem;           /* Add more breathing space */
+}
+
+.project-card img {
+  width: 300px;         /* Bigger image */
+  height: auto;
+  border-radius: 12px;  /* Rounded corners */
+  object-fit: cover;
+}
+
+.project-card .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Title at top, paragraph at bottom */
+  height: 220px;                   /* Adjust based on content */
+}
+
+.project-card .text h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.project-card .text p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+
+@media (max-width: 768px) {
+  .projects-section { height: auto; }
+  .project-wrapper { height: auto; }
+  .project-card { position: static; }
+  .project-card .content { flex-direction: column; text-align: center; }
+  .project-card img { width: 100%; height: auto; }
+}
+
+/* faq */
+.faq-section {
+  display: flex;
+  gap: 3rem;
+  padding: 4rem 2rem;
+  background: #000;
+  color: #fff;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.faq-left {
+  flex: 1;
+  min-width: 250px;
+}
+
+.faq-left h2 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.faq-right {
+  flex: 1.5;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  background: #1e1e1e;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 2rem;
+  background: transparent;
+  color: #fff;
+  font-size: 1.1rem;
+  text-align: left;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 1rem 1rem;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+.faq-item.active .faq-question span {
+  transform: rotate(45deg); /* Turns plus into an X */
+}
+
+@media (max-width: 768px) {
+  .faq-section {
+    flex-direction: column;
+  }
+}
+
+  </style>
+    <style>
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    
+    body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000;
+    color: #fff;
+    line-height: 1.8;
+    padding-bottom: 3rem;
+    }
+    
+    
+    
+    .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    }
+    
+    
+    .hero-img img {
+    width: 100%;
+    display: block;
+    height: auto;
+    margin-bottom: 2rem;
+    }
+    
+    .intro-text {
+    text-align: center;
+    padding: 0 2rem;
+    /* max-width: 900px; */
+    margin: auto;
+    }
+    
+    .intro-text h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    }
+    
+    .signature {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    color: #f2bfa3;
+    margin-bottom: 1.2rem;
+    }
+    
+    .intro-text p {
+    font-size: 1rem;
+    color: #ccc;
+    padding: 0 1rem;
+    }
+    
+    .designer-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: auto;
+    }
+    
+    .designer-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    max-height: 600px;
+    object-fit: cover;
+    }
+    
+    .designer-content {
+    max-width: 550px;
+    }
+    
+    .designer-content h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    }
+    
+    .designer-content p {
+    font-size: 1rem;
+    color: #ccc;
+    margin-top: 1rem;
+    text-align: justify;
+    }
+    
+    
+    @media (max-width: 768px) {
+   
+    .designer-section {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .designer-content {
+      text-align: center;
+    }
+    
+    .intro-text {
+      padding: 1.5rem 1rem;
+    }
+    }
+    .mission-vision-section {
+    /* border: 1px solid #a073ff; */
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 900px;
+    text-align: center;
+    border-radius: 10px;
+    }
+    
+    .tab-buttons {
+    display: inline-flex;
+    border: 1px solid #999;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    }
+    
+    .tab-btn {
+    padding: 0.6rem 1.4rem;
+    background: #000;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    }
+    
+    .tab-btn.active {
+    background-color: #f2bfa3;
+    color: #000;
+    }
+    
+    .tab-content p {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.6;
+    }
+    
+    .hidden {
+    display: none;
+    }
+    .contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #1e1e1e;
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 1100px;
+    margin: 3rem auto;
+    gap: 2rem;
+    }
+    
+    .contact-info, .contact-form {
+    flex: 1 1 400px;
+    padding: 1rem;
+    }
+    
+    .contact-info {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    color: #eaeaea;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    }
+    
+    .info-box {
+    background-color: #1e1e1e;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    }
+    
+    .info-box span {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    }
+    
+    .hours ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0 0;
+    }
+    
+    .hours li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #333;
+    }
+    
+    .contact-form {
+    background-color: #f3f0e9;
+    border-radius: 10px;
+    padding: 2rem;
+    }
+    
+    .contact-form h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #1e1e1e;
+    }
+    
+    .contact-form p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    }
+    
+    .contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    }
+    
+    .contact-form .row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    }
+    
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 6px;
+    border: none;
+    background-color: #eeeae0;
+    font-size: 0.95rem;
+    }
+    
+    .contact-form button {
+    background-color: #f2bfa3;
+    color: #000;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    }
+    
+    .contact-form button:hover {
+    background-color: #e4ab8b;
+    }
+    
+    @media (max-width: 768px) {
+    .contact-container {
+      flex-direction: column;
+    }
+    
+    .contact-form .row {
+      flex-direction: column;
+    }
+    }
+    .site-footer {
+    background-color: #000;
+    color: #fff;
+    padding: 3rem 1rem 2rem;
+    text-align: center;
+    }
+    
+    .footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    }
+    
+    .footer-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    }
+    
+    .footer-nav a:hover {
+    color: #f2bfa3;
+    }
+    
+    .footer-logo img {
+    width: 100px;
+    margin: 2rem auto;
+    }
+    
+    .social-icons {
+    margin: 1rem auto 2rem;
+    }
+    
+    .social-icons a {
+    display: inline-block;
+    margin: 0 0.5rem;
+    }
+    
+    .social-icons img {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 4px;
+    transition: 0.3s;
+    }
+    
+    .social-icons img:hover {
+    transform: scale(1.1);
+    background-color: #f2bfa3;
+    }
+    
+    .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 1rem auto 0;
+    padding-top: 1rem;
+    font-size: 0.9rem;
+    border-top: 1px solid #333;
+    flex-wrap: wrap;
+    }
+    
+    @media (max-width: 600px) {
+    .footer-bottom {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    }
+    .social-icons {
+display: flex;
+justify-content: center;
+gap: 1rem;
+margin: 2rem 0;
+}
+
+.social-icons a {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+background-color: #f3f0e9; /* Light cream/white tone */
+border-radius: 50%;
+width: 40px;
+height: 40px;
+transition: transform 0.3s ease, background-color 0.3s ease;
+border: 1.5px solid #fff;
+}
+
+.social-icons img {
+width: 20px;
+height: 20px;
+}
+
+.social-icons a:hover {
+background-color: #f2bfa3; /* On hover */
+transform: scale(1.1);
+}
+
+    
+    </style>
+    <!-- nav -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+  
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #000;
+        color: #fff;
+      }
+  
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 2rem;
+        background-color: #000;
+        position: relative;
+      }
+  
+      .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #fff;
+      }
+  
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+      }
+  
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 0.95rem;
+      }
+  
+      .nav-links a.active {
+        background: #f2bfa3;
+        color: #000;
+        padding: 6px 10px;
+        border-radius: 5px;
+      }
+  
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+  
+      .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: white;
+        border-radius: 2px;
+      }
+  
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+  
+        .nav-links {
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background-color: #000;
+          width: 100%;
+          padding: 1rem 2rem;
+          display: none;
+        }
+  
+        .nav-links.show {
+          display: flex;
+        }
+  
+        .nav-links li {
+          margin: 0.5rem 0;
+        }
+      }
+  
+      .projects-page {
+        /* padding: 3rem 1rem; */
+        max-width: 1200px;
+        margin: auto;
+      }
+  
+      .projects-page h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 3rem;
+      }
+    </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">B</div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="nav-links" id="navMenu">
+      <li><a href="./i.html">Home</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./process.html">Process</a></li>
+      <li><a href="./services1.html">Services</a></li>
+      <li><a class="active" href="./projects.html">Portfolio</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+    </ul>
+  </header>
+
+  <section class="hero">
+    <div class="hero-logo">
+      <span class="signature">Home Studio by</span> <span class="b">B</span>
+    </div>
+    <div class="cta-box">
+      <p>Ready to transform your space.</p>
+      <button class="cta-button">Book a Call</button>
+    </div>
+  </section>
+
+  <section class="video-section">
+    <video autoplay muted loop>
+      <source src="your-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+  <section class="services-section">
+    <h2>Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="icon-design.svg" alt="Design Consultation" />
+        <h3>Design Consultation</h3>
+        <p>Have a vision for your space but need guidance and reliable support to bring it to life? We offer expert design and smooth contractor coordination to turn your ideas into a stunning, functional reality.</p>
+      </div>
+  
+      <div class="service-card">
+        <img src="icon-build.svg" alt="Design and Build" />
+        <h3>Design and Build</h3>
+        <p>Ready to transform your space but want an expert to handle every detail? We’ve got you covered from the initial design concept through to the final reveal.</p>
+      </div>
+  
+      <div class="service-card">
+        <img src="icon-decor.svg" alt="Interior Decoration" />
+        <h3>Interior Decoration and Room Refresh</h3>
+        <p>Looking to refresh a room without a major overhaul? Let us transform your space with minimal effort and maximum impact.</p>
+      </div>
+    </div>
+  </section>
+  <section class="projects-section">
+  <h2>Projects</h2>
+  <div class="project-wrapper">
+
+  <div class="project-card">
+    <div class="tags">
+      <span>Residential</span>
+      <span>Single Home</span>
+    </div>
+    <div class="content">
+      <img src="farmhouse.jpg" alt="Modern Farmhouse" />
+      <div class="text">
+        <h3>Modern Farmhouse Haven</h3>
+        <p>The Modern Farmhouse project embodies a luxurious twist on farmhouse style, combining rustic warmth with clean, contemporary details for a timeless yet fresh look.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-card ">
+    <div class="tags">
+      <span>Residential</span>
+      <span>Single Home</span>
+    </div>
+    <div class="content">
+      <img src="luxe.jpg" alt="Modern Luxe" />
+      <div class="text">
+        <h3>Modern Luxe Residence</h3>
+        <p>The Modern Luxe Residence combines sleek accents, rich textures, and a contemporary palette to create a refined, sophisticated style that enhances every space with effortless elegance.</p>
+      </div>
+    </div>
+  </div>
+  <div class="project-card ">
+    <div class="tags">
+      <span>Residential</span>
+      <span>Single Home</span>
+    </div>
+    <div class="content">
+      <img src="luxe.jpg" alt="Modern Luxe" />
+      <div class="text">
+        <h3>Modern Luxe Residence</h3>
+        <p>The Modern Luxe Residence combines sleek accents, rich textures, and a contemporary palette to create a refined, sophisticated style that enhances every space with effortless elegance.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+
+</section>
+<section class="faq-section">
+  <div class="faq-left">
+    <h2>Your questions,<br>our answers</h2>
+  </div>
+  <div class="faq-right">
+    <div class="faq-item">
+      <button class="faq-question">What services do you offer?<span>+</span></button>
+      <div class="faq-answer">We offer design consultation, project management, and more.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">How do I start a project with HomeStudiobyB?<span>+</span></button>
+      <div class="faq-answer">Contact us through our website form or book a call!</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">What is the typical timeline for a project?<span>+</span></button>
+      <div class="faq-answer">Timelines depend on project scope, typically 4-12 weeks.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Can you work within my budget?<span>+</span></button>
+      <div class="faq-answer">Absolutely, we tailor solutions to your budget needs.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Do you handle the purchasing of materials?<span>+</span></button>
+      <div class="faq-answer">Yes, we handle material procurement for your project.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Will I be able to see the design before it is implemented?<span>+</span></button>
+      <div class="faq-answer">Yes, we provide 3D renderings and design mockups.</div>
+    </div>
+  </div>
+</section>
+<!-- footer -->
+<section class="contact-container">
+  <div class="contact-info">
+    <div class="info-box"><strong>EMAIL</strong><span>homestudiobyb@gmail.com</span></div>
+    <div class="info-box"><strong>PHONE</strong><span>+1 (310) 880-0672</span></div>
+    <div class="info-box hours">
+      <strong>OPENING HOURS</strong>
+      <ul>
+        <li><span>🕒 Monday</span><span>9.00 AM – 6.00 PM</span></li>
+        <li><span>🕒 Tuesday</span><span>9.00 AM – 6.00 PM</span></li>
+        <li><span>🕒 Wednesday</span><span>9.00 AM – 6.00 PM</span></li>
+        <li><span>🕒 Thursday</span><span>9.00 AM – 6.00 PM</span></li>
+        <li><span>🕒 Friday</span><span>9.00 AM – 6.00 PM</span></li>
+        <li><span>🕒 Saturday</span><span>9.00 AM – 6.00 PM</span></li>
+        <li><span>🕒 Sunday</span><span>Closed</span></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="contact-form">
+    <h2>Let’s Connect!</h2>
+    <p>Whether you're looking to redesign your home, remodel your kitchen, or need expert advice on interiors, we're here to help. Reach out today, and let's bring your design dreams to life!</p>
+    
+    <form>
+      <div class="row">
+        <input type="text" placeholder="Enter Your Full Name" required>
+        <input type="tel" placeholder="Enter Your Phone Number" required>
+      </div>
+      <input type="email" placeholder="Enter Your Email" required>
+      <select required>
+        <option disabled selected>Select Your Project Type</option>
+        <option>Interior Design</option>
+        <option>Kitchen Remodel</option>
+        <option>Full Home Revamp</option>
+      </select>
+      <input type="text" placeholder="Project Location" required>
+      <textarea rows="4" placeholder="Tell me more about your project"></textarea>
+      <button type="submit">Request Free Estimate</button>
+    </form>
+  </div>
+  </section>
+  <!-- footer -->
+  <footer class="site-footer">
+  <nav class="footer-nav">
+    <a href="#">HOME</a>
+    <a href="./about.html">ABOUT</a>
+    <a href="./process.html">PROCESS</a>
+    <a href="">SERVICES</a>
+    <a href="">PORTFOLIO</a>
+    <a href="./contact.html">CONTACT</a>
+  </nav>
+  
+  <div class="footer-logo">
+    <img src="logo-b.png" alt="Home Studio by B" />
+  </div>
+  
+  <div class="social-icons">
+    <a href="#"><img src="icon-instagram.svg" alt="Instagram" /></a>
+    <a href="#"><img src="icon-facebook.svg" alt="Facebook" /></a>
+  </div>
+  
+  <!-- <hr /> -->
+  
+  <div class="footer-bottom">
+    <span>Copyright</span>
+    <span>2024. All Right Reserves</span>
+  </div>
+  </footer>
+<script>
+  const questions = document.querySelectorAll('.faq-question');
+  questions.forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      item.classList.toggle('active');
+    });
+  });
+</script>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+  });
+</script>
+
+
+</body>
+</html>
