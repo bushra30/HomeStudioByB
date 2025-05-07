@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Home Studio by B</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    #gallery {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0;
+      padding: 0;
+    }
+
+    .lightboximg {
+      width: 32%;
+      margin-bottom: 20px;
+      display: flex;
+    }
+
+    .lightboximg a {
+      width: 100%;
+      height: 0;
+      padding-top: 60%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: block;
+    }
+
+    .noverlay {
+      position: fixed;
+      top: 0; bottom: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.75);
+    }
+
+    .noverlay .content {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+    }
+
+    .noverlay .content img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 10px;
+      pointer-events: auto;
+    }
+
+    .noverlay button {
+      position: absolute;
+      border: 0;
+      background: #fff;
+      font-size: 20px;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    #close {
+      top: 10px;
+      right: 10px;
+    }
+
+    .lightnav {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .lightboximg {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="./fologo.png" alt="Logo">
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+
+    <ul class="nav-links" id="navMenu">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./process.html">Process</a></li>
+      <li class="dropdown">
+        <a href="./services1.html">Services ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="./services1.html">Design Consultation</a></li>
+          <li><a href="./services2.html">Design and Build</a></li>
+          <li><a href="./services3.html">Interior Decoration and Room Refresh</a></li>
+        </ul>
+      </li>
+      <li><a href="./projects.html">Portfolio</a></li>
+      <li><a href="./gallery.html">Gallery</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+    </ul>
+  </header>
+
+  <!-- Gallery -->
+  <section>
+    <section class="gshowcase-section">
+        <h2>
+            Serene Rooms
+
+
+        </h2>
+        <ul id="gallery">
+            <li class="lightboximg">
+              <a href="./images/s1.avif" style="background-image:url('./images/s1.avif')"></a>
+            </li>
+            <li class="lightboximg">
+              <a href="./images/s2.avif" style="background-image:url('./images/s2.avif')"></a>
+            </li>
+            <li class="lightboximg">
+              <a href="./images/s3.avif" style="background-image:url('./images/s3.avif')"></a>
+            </li>
+            <li class="lightboximg">
+              <a href="./images/s4.avif" style="background-image:url('./images/s4.avif')"></a>
+            </li>
+            <li class="lightboximg">
+              <a href="./images/s5.avif" style="background-image:url('./images/s5.avif')"></a>
+            </li>
+            <li class="lightboximg">
+              <a href="./images/s6.avif" style="background-image:url('./images/s6.avif')"></a>
+            </li>
+            <li class="lightboximg">
+              <a href="./images/s7.avif" style="background-image:url('./images/s7.avif')"></a>
+            </li>
+            <li class="lightboximg">
+              <a href="./images/s8.avif" style="background-image:url('./images/s8.avif')"></a>
+            </li>
+           
+            <li class="lightboximg">
+              <a href="./images/s10.avif" style="background-image:url('./images/s10.avif')"></a>
+            </li>
+            <li class="lightboximg">
+              <a href="./images/s11.avif" style="background-image:url('./images/s11.avif')"></a>
+            </li>
+            <li class="lightboximg">
+              <a href="./images/s12.avif" style="background-image:url('./images/s12.avif')"></a>
+            </li>
+            <li class="lightboximg">
+              <a href="./images/s13.avif" style="background-image:url('./images/s13.avif')"></a>
+            </li>
+            <li class="lightboximg">
+              <a href="./images/s14.avif" style="background-image:url('./images/s14.avif')"></a>
+            </li>
+           
+            
+            <li class="lightboximg">
+              <a href="./images/s17.avif" style="background-image:url('./images/s17.avif')"></a>
+            </li>
+            <li class="lightboximg">
+              <a href="./images/s18.avif" style="background-image:url('./images/s18.avif')"></a>
+            </li>
+            <li class="lightboximg">
+              <a href="./images/s19.avif" style="background-image:url('./images/s19.avif')"></a>
+            </li>
+           
+            <li class="lightboximg">
+              <a href="./images/s21.avif" style="background-image:url('./images/s21.avif')"></a>
+            </li>
+            <li class="lightboximg">
+              <a href="./images/s22.avif" style="background-image:url('./images/s22.avif')"></a>
+            </li>
+          </ul>
+          
+          
+  </section>
+  </section>
+
+
+  <!-- Contact Section -->
+  <section class="contact-container">
+    <div class="contact-info">
+      <div class="info-box"><strong>EMAIL</strong><span>homestudiobyb@gmail.com</span></div>
+      <div class="info-box"><strong>PHONE</strong><span>+1 (310) 880-0672</span></div>
+      <div class="info-box hours">
+        <strong>OPENING HOURS</strong>
+        <ul>
+          <li><span>🕒 Monday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li><span>🕒 Tuesday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li><span>🕒 Wednesday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li><span>🕒 Thursday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li><span>🕒 Friday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li><span>🕒 Saturday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li><span>🕒 Sunday</span><span>Closed</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h2>Let’s Connect!</h2>
+      <p>Whether you're looking to redesign your home, remodel your kitchen, or need expert advice on interiors, we're here to help. Reach out today, and let's bring your design dreams to life!</p>
+      <form>
+        <div class="row">
+          <input type="text" placeholder="Enter Your Full Name" required>
+          <input type="tel" placeholder="Enter Your Phone Number" required>
+        </div>
+        <input type="email" placeholder="Enter Your Email" required>
+        <select required>
+          <option disabled selected>Select Your Project Type</option>
+          <option>Interior Design</option>
+          <option>Kitchen Remodel</option>
+          <option>Full Home Revamp</option>
+        </select>
+        <input type="text" placeholder="Project Location" required>
+        <textarea rows="4" placeholder="Tell me more about your project"></textarea>
+        <button type="submit">Request Free Estimate</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <nav class="footer-nav">
+      <a href="./index.html">HOME</a>
+      <a href="./about.html">ABOUT</a>
+      <a href="./process.html">PROCESS</a>
+      <a href="./services1.html">SERVICES</a>
+      <a href="./gallery.html">PORTFOLIO</a>
+      <a href="./contact.html">CONTACT</a>
+    </nav>
+
+    <div class="footer-logo">
+      <img src="./fologo.png" alt="Home Studio by B" />
+    </div>
+
+    <div class="social-icons">
+      <a href="https://www.instagram.com/homestudiobyb" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100093190297644" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+    </div>
+
+    <div class="footer-bottom">
+      <span>Copyright</span>
+      <span>2024. All Right Reserved</span>
+    </div>
+  </footer>
+
+  <!-- Lightbox Script -->
+  <script>
+    $(document).on('click', '.lightboximg a', function (e) {
+      e.preventDefault();
+      var src = $(this).prop('href');
+      $('#gallery li').removeClass('active');
+      $(this).parent().addClass('active');
+      $('body').append(
+        '<div class="noverlay">' +
+          '<button id="close">X</button>' +
+          '<button class="lightnav prev">«</button>' +
+          '<button class="lightnav next">»</button>' +
+          '<div class="content"><img src="' + src + '"></div>' +
+        '</div>'
+      );
+    });
+
+    $(document).on('click', '#close', function () {
+      $('.noverlay').remove();
+      $('#gallery .active').removeClass('active');
+    });
+
+    $(document).on('click', '.lightnav', function () {
+      var current = $('#gallery .active');
+      var next;
+      if ($(this).hasClass('next')) {
+        next = current.next().length ? current.next() : $('#gallery li').first();
+      } else {
+        next = current.prev().length ? current.prev() : $('#gallery li').last();
+      }
+      $('#gallery li').removeClass('active');
+      next.addClass('active');
+      var newSrc = next.find('a').prop('href');
+      $('.noverlay .content img').attr('src', newSrc);
+    });
+  </script>
+
+  <script src="./script.js"></script>
+</body>
+</html>

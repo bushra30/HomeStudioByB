@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Working FAQ Toggle</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+    }
+
+    .faq-section {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 10px;
+      padding: 10px 0;
+    }
+
+    .faq-question {
+      background: none;
+      border: none;
+      font-size: 18px;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 10px 0;
+      color: #444;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .faq-question .icon {
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.open .faq-question .icon {
+      transform: rotate(45deg); /* + becomes × */
+    }
+  </style>
+</head>
+<body>
+
+  <section class="faq-section">
+    <h2>FAQs</h2>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        What services do you offer?
+        <span class="icon">+</span>
+      </button>
+      <div class="faq-answer">We offer design consultation, project management, and more.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        How do I start a project?
+        <span class="icon">+</span>
+      </button>
+      <div class="faq-answer">You can start by contacting us through our form or booking a call.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Do you work with budgets?
+        <span class="icon">+</span>
+      </button>
+      <div class="faq-answer">Absolutely! We customize solutions for all budget levels.</div>
+    </div>
+  </section>
+
+  <script>
+    const questions = document.querySelectorAll('.faq-question');
+    questions.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
