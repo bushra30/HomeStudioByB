@@ -309,4 +309,18 @@
     $(document).on('click', '.lightnav', function () {
       var current = $('#gallery .active');
       var next;
-      if ($(this
+      if ($(this).hasClass('next')) {
+        next = current.next().length ? current.next() : $('#gallery li').first();
+      } else {
+        next = current.prev().length ? current.prev() : $('#gallery li').last();
+      }
+      $('#gallery li').removeClass('active');
+      next.addClass('active');
+      var newSrc = next.find('a').prop('href');
+      $('.noverlay .content img').attr('src', newSrc);
+    });
+  </script>
+
+  <script src="./script.js"></script>
+</body>
+</html>

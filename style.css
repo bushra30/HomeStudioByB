@@ -2066,7 +2066,7 @@ body {
 }
 .hero-img {
   width: 100%;
-  height: 100vh; /* or set a fixed height like 600px */
+ 
   overflow: hidden;
   position: relative;
 }
@@ -2407,4 +2407,16 @@ body {
     font-size: clamp(66px, 10vw, 120px); /* Minimum 36px, scales with viewport, max 120px */
     font-style: normal;
     font-weight: 500;
-    letter-spac
+    letter-spacing: -0.09em;
+    line-height: 90%;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    margin-bottom: 40px;
+  }
+}
+.footer-label{
+  color: black;
+  text-transform: uppercase;
+  font-size: 12px;
+}
