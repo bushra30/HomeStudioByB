@@ -1689,6 +1689,7 @@ margin-bottom: 4rem;
 .project-wrapper {
 position: relative;
 /* max-width: 900px; */
+max-width: 1200px;
 margin: auto;
 height: 180vh; /* Enough height for stacking */
 }
@@ -2093,8 +2094,8 @@ body {
   padding: 1.5rem;
   background: none;
   border: none;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 20px;
+  /* font-weight: bold; */
 }
 
 .faq-question span {
