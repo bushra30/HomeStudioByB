@@ -1152,7 +1152,7 @@ object-fit: contain;
 
 .oprocess-page {
   /* padding: 3rem 1rem; */
-  /* max-width: 1100px; */
+  max-width: 1200px;
   margin: auto;
 }
 
