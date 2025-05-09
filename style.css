@@ -303,7 +303,7 @@ flex-wrap: wrap;
 background-color: #211f1e;
 border-radius: 15px;
 padding: 2rem;
-max-width: 1100px;
+max-width: 1300px;
 margin: 3rem auto;
 gap: 2rem;
 }
@@ -1646,6 +1646,7 @@ flex-direction: column;
 gap: 1rem;
 transition: transform 0.3s ease, box-shadow 0.3s ease;
 height: 500px;
+cursor: pointer;
 }
 
 .service-card:hover {
