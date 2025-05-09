@@ -996,7 +996,7 @@ object-fit: contain;
 }
 
 .services-box h3 {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   color: #000;
   margin-bottom: 1rem;
 }
@@ -1022,22 +1022,27 @@ object-fit: contain;
 .contact-box {
   background-color: #1e1e1e;
   border-radius: 10px;
-  padding: 1.5rem;
+  padding: 1.6rem;
 }
 
 .contact-box .contact-heading {
   color: #f2bfa3;
-  font-weight: 600;
+  font-weight: 500;
   margin-bottom: 0.2rem;
+  font-size: 20px;
 }
 
 .contact-box h2 {
   font-size: 2rem;
   margin-bottom: 2.5rem;
+  
 }
 
 .contact-item {
   margin-bottom: 1rem;
+  background: rgba(255, 255, 255, .05);
+  border-radius: 10px;
+  padding: 1rem;
 }
 
 .contact-item label {
