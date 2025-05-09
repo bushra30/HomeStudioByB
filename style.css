@@ -303,7 +303,7 @@ flex-wrap: wrap;
 background-color: #211f1e;
 border-radius: 15px;
 padding: 2rem;
-max-width: 1300px;
+max-width: 1200px;
 margin: 3rem auto;
 gap: 2rem;
 }
@@ -1460,6 +1460,7 @@ object-fit: contain;
   font-size: 2.2rem;
   color: white;
   margin-bottom: 1.2rem;
+  font-weight: 100;
 }
 
 .intro-text p {
@@ -2420,4 +2421,7 @@ body {
   color: black;
   text-transform: uppercase;
   font-size: 12px;
+}
+textarea::placeholder {
+  font-family: 'Inter', sans-serif;
 }
