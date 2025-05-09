@@ -2232,13 +2232,14 @@ body {
   font-family: "Inter", "Inter Placeholder", sans-serif;
   font-size: 120px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 550;
   letter-spacing: -0.09em;
   line-height: 90%;
   text-align: left;
   text-decoration: none;
   text-transform: none;
   margin-bottom: 40px;
+  color: rgb(253, 252, 238);
 }
 .services-section h2,.projects-section h2{
   font-family: "Inter", "Inter Placeholder", sans-serif;
