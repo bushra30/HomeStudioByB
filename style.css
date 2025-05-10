@@ -908,16 +908,18 @@ object-fit: contain;
   .nav-links .dropdown-menu li a {
     display: block;
     padding: 0.7rem 1rem;
-    color: orange;         /* link color */
+    /* color: orange;         link color */
     white-space: nowrap;
     background-color: rgba(33, 31, 30, 0.71);
     border-radius: 4px;
     opacity: 1;
+    color: rgb(253, 252, 238);
     
 
   }
   .nav-links .dropdown-menu li a:hover {
-    /* background: #f0f0f0; */
+    background: #f0f0f0;
+    color: rgb(243, 172, 133);
   }
   
   /* show on hover */
@@ -2556,5 +2558,5 @@ textarea::placeholder {
 .faq-item:hover .facta {
   background-color: rgb(243, 172, 133);
 
-  color: #fff; /* optional for contrast */
+  color: #fff; 
 }
