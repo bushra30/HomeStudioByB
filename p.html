@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .portfolio-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.portfolio-cards .card {
+  /* background: #fff; */
+  border-radius: 12px;
+  overflow: hidden;
+  width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.portfolio-cards .card:hover {
+  transform: translateY(-5px);
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.tags {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.tag {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.content {
+  padding: 15px;
+  text-align: center;
+}
+
+.content h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.content p {
+  font-size: 14px;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .portfolio-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+</style>
+<body>
+    <div class="portfolio-cards">
+        <div class="card">
+          <div class="image-wrapper">
+            <img src="https://plus.unsplash.com/premium_photo-1661964014750-963a28aeddea?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Design and Build">
+            <div class="tags">
+              <span class="tag">New</span>
+              <span class="tag">Featured</span>
+            </div>
+          </div>
+          <div class="content">
+            <h3>Design and Build</h3>
+            <p>Complete transformation from concept to completion.</p>
+          </div>
+        </div>
+        
+      
+        <div class="card">
+          <div class="image-wrapper">
+            <img src="https://plus.unsplash.com/premium_photo-1661964014750-963a28aeddea?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Design Consultation">
+            <div class="tags">
+              <span class="tag">Expert</span>
+              <span class="tag">Consult</span>
+            </div>
+          </div>
+          <div class="content">
+            <h3>Design Consultation</h3>
+            <p>Guided advice to shape your space smartly and stylishly.</p>
+          </div>
+        </div>
+      
+        <div class="card">
+          <div class="image-wrapper">
+            <img src="https://plus.unsplash.com/premium_photo-1661964014750-963a28aeddea?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Interior Decoration">
+            <div class="tags">
+              <span class="tag">Fresh</span>
+              <span class="tag">Modern</span>
+            </div>
+          </div>
+          <div class="content">
+            <h3>Room Refresh</h3>
+            <p>Update your interiors with a quick, elegant redesign.</p>
+          </div>
+        </div>
+      </div>
+      
+</body>
+</html>

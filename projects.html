@@ -11,7 +11,105 @@
 
 
 
+<style>
+ .portfolio-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  cursor: pointer;
+}
 
+.card {
+  position: relative;
+  width: 550px;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: black;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Image section */
+.image-wrapper {
+  position: relative;
+  height: 400px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tags {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.tag {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* Content below image */
+.content {
+  padding: 15px;
+  text-align: left;
+}
+
+.content h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.content p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Overlay that covers full card */
+.overlay {
+ 
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0); /* starts transparent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  pointer-events: none; /* makes sure buttons etc still clickable */
+}
+
+.overlay h3 {
+  color: #fff;
+  font-size: 28px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Show overlay and text on hover */
+.card:hover .overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.card:hover .overlay h3 {
+  opacity: 1;
+}
+
+</style>
 
   
 <!-- footer -->
@@ -53,49 +151,67 @@
     </ul>
   </header>
 
-  <section class="projects-page">
-    <h1>Projects</h1>
+  <!-- <section class="projects-page"> -->
+    <h1 class="portfoliohead">Projects</h1>
 
+    <div class="portfolio-cards">
+      <div class="card">
+        <div class="image-wrapper">
+          <img src="./images/process1.avif" alt="Design and Build">
+          <div class="tags">
+            <span class="tag">Residential</span>
+            <span class="tag">Single Home</span>
+          </div>
+        </div>
     
-    <div class="project-grid">
-   
-      <div class="project-card" >
-        <a href="./project1.html" >
-        <img src="./port1.avif" alt="Modern Farmhouse" />
-        <div class="project-labels">
-          <span>RESIDENTIAL</span>
-          <span>SINGLE HOME</span>
+        <div class="content">
+          <h3>Modern Farmhouse Haven</h3>
         </div>
-    </a>
-        <h3>Modern Farmhouse Haven</h3>
-  
+    
+        <div class="overlay">
+          <h3>Modern Farmhouse Haven</h3>
+        </div>
       </div>
-
-      <div class="project-card">
-        <a href="./project2.html" >
-
-        <img src="./port2.avif" alt="Modern Luxe" />
-        <div class="project-labels">
-          <span>RESIDENTIAL</span>
-          <span>SINGLE HOME</span>
+      <div class="card">
+        <div class="image-wrapper">
+          <img src="./images/process2.avif" alt="Design and Build">
+          <div class="tags">
+            <span class="tag">Residential</span>
+            <span class="tag">Single Home</span>
+          </div>
         </div>
-        </a>
-        <h3>Modern Luxe Residence</h3>
+    
+        <div class="content">
+          <h3>Modern Luxe Residence</h3>
+        </div>
+    
+        <div class="overlay">
+          <h3>Modern Luxe Residence</h3>
+        </div>
       </div>
-
-      <div class="project-card">
-        <a href="./project3.html" >
-
-        <img src="port3.avif" alt="Fluted Kitchen" />
-        <div class="project-labels">
-          <span>RESIDENTIAL</span>
-          <span>SINGLE HOME</span>
+      <div class="card">
+        <div class="image-wrapper">
+          <img src="./images/process3.avif" alt="Design and Build">
+          <div class="tags">
+            <span class="tag">Residential</span>
+            <span class="tag">Single Home</span>
+          </div>
         </div>
-        </a>
-        <h3>Fluted Kitchen Elegance</h3>
+    
+        <div class="content">
+          <h3>Fluted Kitchen Oasis</h3>
+        </div>
+    
+        <div class="overlay">
+          <h3>Fluted Kitchen Oasis</h3>
+        </div>
       </div>
     </div>
-  </section>
+    
+        
+ 
+    
+  <!-- </section> -->
   <section class="contact-container">
     <div class="contact-info">
       <div class="info-box"><strong>EMAIL</strong><span>homestudiobyb@gmail.com</span></div>

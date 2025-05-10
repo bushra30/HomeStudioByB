@@ -3,31 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Design and Build</title>
+  <title>Projects | Home Studio by B</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="./style.css">
- 
-  
 </head>
-<script>
-  // Get current page from URL
-  const url = window.location.href;
-  let activePage = "";
 
-  if (url.includes("service1")) activePage = "service1";
-  else if (url.includes("service2")) activePage = "service2";
-  else if (url.includes("service3")) activePage = "service3";
 
-  // Highlight matching li
-  document.querySelectorAll(".services-box li").forEach(li => {
-    if (li.dataset.page === activePage) {
-      li.classList.add("active");
-    }
-  });
-</script>
+
+
+
+  
+<!-- footer -->
+
 <body>
 
   <header class="navbar">
@@ -65,84 +53,46 @@
     </ul>
   </header>
 
-  <section class="hero-section">
+  <section class="projects-page">
+    <h1>Projects</h1>
+
     
-    <section class="gshowcase-section">
-      <h2>Design and Build
-      </h2>
-
-        </section>
-    <div class="hero-content">
-      <p>
-        Ready to transform your space but want an expert to handle every detail? We’ve got you covered from the initial design concept through to the final reveal.
-
-
-
-
-
-
-      </p>
-      <!-- <button class="cta-button">Book a Call</button> -->
+    <div class="project-grid">
    
-      <a href="./contact.html" class="cta-button" style="text-decoration: none;">
-        Book a Call <span class="arrow">→</span>
-      </a>
-   
-     
-    </div>
-  </section>
-
-  <section class="image-section">
-    <img src="./images/s2.jpg" alt="Interior kitchen" />
-  </section>
-  <section class="services-detail">
-    <div class="left-column">
-      <div class="highlight-box">
-        Our end-to-end service offers a seamless transformation for clients who want the convenience of a fully managed project. We handle everything from design consultation to construction, including contractor and project management. This service is ideal for those looking for a complete, stress-free renovation experience for kitchen or bathroom or any space.
-
-
-
-      </div>
-  
-      <h4>What’s Included:</h4>
-      <ul class="service-list">
-        <li><strong>Full Design Consultation:</strong> Includes all features of Design Consultation Services.</li>
-        <li><strong>3D Renderings:</strong> Providing detailed visuals and moodboards.</li>
-        <li><strong>Space Planning & Layout Development:</strong> Maximizing flow and functionality across every room.</li>
-        <li><strong>Material Selection:</strong> Material selection including tiles, floors, cabinets, vanities and many more for a cohesive look.</li>
-        <li><strong>Color Scheme:</strong> Curating color palettes for a perfect look.</li>
-        <li><strong>Project Management & Contractor Coordination:</strong> Managing all aspects of the renovation, including hiring contractors and suppliers to ensure a smooth process.</li>
-        <li><strong>Furniture & Decor Selection:</strong> Recommending pieces that enhance both style and comfort.</li>
-        <li><strong>Final Styling:</strong> Providing finishing touches to complete your space.</li>
-      </ul>
-      
-  
-      <p class="closing-text">
-        By choosing HomeStudioByB's services, you can transform your space into a beautifully designed, functional, and personalized environment that you’ll love experiencing every day.
-      </p>
-    </div>
-  
-    <div class="right-column">
-      <div class="services-box">
-        <h3>Other Services</h3>
-        <ul>
-          <li onclick="window.location.href='./services1.html'">Design and Build</li>
-          <li onclick="window.location.href='./services2.html'">Design Consultation</li>
-          <li onclick="window.location.href='./services3.html'">Interior Decoration and Room Refresh</li>
-        </ul>
-      </div>
-  
-      <div class="contact-box">
-        <p class="contact-heading">Question in mind?</p>
-        <h2>Let's Connect</h2>
-        <div class="contact-item">
-          <label>EMAIL</label>
-          <p>homestudiobyb@gmail.com</p>
+      <div class="project-card" >
+        <a href="./project1.html" >
+        <img src="./port1.avif" alt="Modern Farmhouse" />
+        <div class="project-labels">
+          <span>RESIDENTIAL</span>
+          <span>SINGLE HOME</span>
         </div>
-        <div class="contact-item">
-          <label>PHONE</label>
-          <p>+1 (310) 880-0672</p>
+    </a>
+        <h3>Modern Farmhouse Haven</h3>
+  
+      </div>
+
+      <div class="project-card">
+        <a href="./project2.html" >
+
+        <img src="./port2.avif" alt="Modern Luxe" />
+        <div class="project-labels">
+          <span>RESIDENTIAL</span>
+          <span>SINGLE HOME</span>
         </div>
+        </a>
+        <h3>Modern Luxe Residence</h3>
+      </div>
+
+      <div class="project-card">
+        <a href="./project3.html" >
+
+        <img src="port3.avif" alt="Fluted Kitchen" />
+        <div class="project-labels">
+          <span>RESIDENTIAL</span>
+          <span>SINGLE HOME</span>
+        </div>
+        </a>
+        <h3>Fluted Kitchen Elegance</h3>
       </div>
     </div>
   </section>
@@ -218,7 +168,6 @@
       <a href="https://www.instagram.com/homestudiobyb?igsh=MWhmaG5pa3R3bHUybQ%3D%3D&utm_source=qr" target="_blank"><i class="fa-brands fa-instagram"></i></a>
       <a href="https://www.facebook.com/profile.php?id=100093190297644&mibextid=LQQJ4d" target="_blank"><i class="fa-brands fa-facebook"></i></a>
     </div>
-    
     <!-- <hr /> -->
     
     <div class="footer-bottom">
