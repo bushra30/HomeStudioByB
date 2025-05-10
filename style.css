@@ -2181,7 +2181,7 @@ body {
 
 /* Gallery inside */
 .facta {
-  background-color: rgb(243, 172, 133);
+  /* background-color: rgb(243, 172, 133); */
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -2552,4 +2552,9 @@ textarea::placeholder {
     font-size: 14px;
     padding: 10px 20px;
   }
+}
+.faq-item:hover .facta {
+  background-color: rgb(243, 172, 133);
+
+  color: #fff; /* optional for contrast */
 }
