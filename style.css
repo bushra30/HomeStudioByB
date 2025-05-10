@@ -2408,29 +2408,6 @@ body {
   color: #333;
   text-align: center;
 }
-
-@media (max-width: 768px) {
-  .services-section h2,.projects-section h2{
-    font-family: "Inter", "Inter Placeholder", sans-serif;
-    font-size: clamp(66px, 10vw, 120px); /* Minimum 36px, scales with viewport, max 120px */
-    font-style: normal;
-    font-weight: 500;
-    letter-spacing: -0.09em;
-    line-height: 90%;
-    text-align: center;
-    text-decoration: none;
-    text-transform: none;
-    margin-bottom: 40px;
-  }
-}
-.footer-label{
-  color: black;
-  text-transform: uppercase;
-  font-size: 12px;
-}
-textarea::placeholder {
-  font-family: 'Inter', sans-serif;
-}
 .portfoliohead{
   font-family: "Inter", "Inter Placeholder", sans-serif;
   font-size: 120px;
@@ -2444,4 +2421,39 @@ textarea::placeholder {
   margin-bottom: 40px;
   padding-left: 5rem;
   color: rgb(253, 252, 238);
+}
+@media (max-width: 768px) {
+  .services-section h2,.projects-section h2{
+    font-family: "Inter", "Inter Placeholder", sans-serif;
+    font-size: clamp(66px, 10vw, 120px); /* Minimum 36px, scales with viewport, max 120px */
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.09em;
+    line-height: 90%;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    margin-bottom: 40px;
+  }
+  .portfoliohead{
+    font-family: "Inter", "Inter Placeholder", sans-serif;
+    font-size: clamp(66px, 10vw, 120px); /* Minimum 36px, scales with viewport, max 120px */
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.09em;
+    line-height: 90%;
+    text-align: left;
+    text-decoration: none;
+    text-transform: none;
+    margin-bottom: 40px;
+    padding-left: 2rem;
+  }
+}
+.footer-label{
+  color: black;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+textarea::placeholder {
+  font-family: 'Inter', sans-serif;
 }
