@@ -358,9 +358,10 @@ padding: 2rem;
 }
 
 .contact-form h2 {
-font-size: 2rem;
+font-size: 48px;
 margin-bottom: 0.5rem;
 color: #1e1e1e;
+letter-spacing: -0.05em;
 }
 
 .contact-form p {
@@ -1136,6 +1137,8 @@ object-fit: contain;
       display: block;
       margin: auto;
       border-radius: 18px;
+      height: 90vh;
+      object-fit:cover;
     }
 
     @media (max-width: 768px) {
@@ -2165,7 +2168,7 @@ body {
 }
 
 .gshowcase-section{
-  padding: 2rem;
+  /* padding: 2rem; */
 }
 /* Optional responsive adjustments */
 @media (max-width: 768px) {
@@ -2482,7 +2485,7 @@ textarea::placeholder {
 }
 
 .gallery-heading h1 {
-  font-size: clamp(28px, 6vw, 56px);
+  font-size: clamp(28px, 6vw, 40px);
   font-weight: 700;
   margin-bottom: 20px;
 }
@@ -2557,11 +2560,21 @@ textarea::placeholder {
     padding: 10px 20px;
   }
 }
-.faq-item:hover .facta {
+/* .faq-item:hover .facta {
   background-color: rgb(243, 172, 133);
 
   color: #fff; 
+} */
+.facta {
+  transition: background-color 0.4s ease, color 0.4s ease;
+  transition-delay: 1s;
 }
+
+.faq-item:hover .facta {
+  background-color: rgb(243, 172, 133);
+  color: #fff;
+}
+
 .cta-box p {
   margin-bottom: 16px; /* Adjust spacing as needed */
   font-size: 1.2rem;
@@ -2582,3 +2595,10 @@ textarea::placeholder {
   border-radius: 4px;
   /* margin-left: 8px; */
 }
+.home-projectbutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
