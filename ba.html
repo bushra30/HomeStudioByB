@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> | Home Studio by B</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="./style.css">
+
+  
+  
+</head>
+<style>
+    body {
+  margin: 0;
+  /* font-family: 'Georgia', serif; */
+  /* background: #fff; */
+  color: #fff;
+  text-align: center;
+}
+
+.container {
+  padding: 40px 20px;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.image-box {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.image-box .image {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0; left: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.image-box .visible {
+  opacity: 1;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  .gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+</style>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="./fologo.png" alt="Logo">
+    </div>
+  
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  
+    <ul class="nav-links" id="navMenu">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./process.html">Process</a></li>
+  
+      <!-- Services dropdown -->
+      <li class="dropdown">
+        <a href="./services1.html">Services ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="./services1.html">Design Consultation</a></li>
+          <li><a href="./services2.html">Design and Build</a></li>
+          <li><a href="./services3.html">Interior Decoration and Room Refresh</a></li>
+        </ul>
+      </li>
+  
+      <li><a href="./projects.html">Portfolio</a></li>
+      <li><a href="./gallery.html">Gallery</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+    </ul>
+  </header>
+  <div class="container">
+    <h1>BEFORE & AFTER</h1>
+    <p class="subtitle">Design demands expert technical and spatial thinking - with a touch of imagination.</p>
+
+    <div class="gallery">
+      <div class="image-box" onclick="toggleImage(this)">
+        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=2768&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Before" class="image visible">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="After" class="image">
+      </div>
+
+      <div class="image-box" onclick="toggleImage(this)">
+        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=2768&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Before" class="image visible">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="After" class="image">
+      </div>
+      <div class="image-box" onclick="toggleImage(this)">
+        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=2768&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Before" class="image visible">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="After" class="image">
+      </div>
+      <div class="image-box" onclick="toggleImage(this)">
+        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=2768&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Before" class="image visible">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="After" class="image">
+      </div>
+      <div class="image-box" onclick="toggleImage(this)">
+        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=2768&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Before" class="image visible">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2674&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="After" class="image">
+      </div>
+      <div class="image-box" onclick="toggleImage(this)">
+        <img src="before2.jpg" alt="Before" class="image visible">
+        <img src="after2.jpg" alt="After" class="image">
+      </div>
+    </div>
+  </div>
+
+  <!-- <section class="projects-page">
+    <h1>Your Perfect Space Awaits</h1>
+  </section> -->
+
+
+<section class="contact-container">
+    <div class="contact-info">
+      <div class="info-box"><strong>EMAIL</strong><span>homestudiobyb@gmail.com</span></div>
+      <div class="info-box"><strong>PHONE</strong><span>+1 (310) 880-0672</span></div>
+      <div class="info-box hours">
+        <strong>OPENING HOURS</strong>
+        <ul>
+          <li><span>🕒 Monday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li><span>🕒 Tuesday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li><span>🕒 Wednesday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li><span>🕒 Thursday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li><span>🕒 Friday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li><span>🕒 Saturday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li><span>🕒 Sunday</span><span>Closed</span></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="contact-form">
+      <h2>Let’s Connect!</h2>
+      <p>Whether you're looking to redesign your home, remodel your kitchen, or need expert advice on interiors, we're here to help. Reach out today, and let's bring your design dreams to life!</p>
+      
+      <form>
+        <div class="row">
+          <label class="footer-label">Name</label>
+          <input type="text" placeholder="Enter Your Full Name" required>
+          <!-- <label>Phone</label> -->
+          <label class="footer-label">Phone</label>
+          <input type="tel" placeholder="Enter Your Phone Number" required>
+        </div>
+        <label class="footer-label">Email</label>
+        <input type="email" placeholder="Enter Your Email" required>
+        <label class="footer-label">Project type</label>
+
+        <select required>
+          <option disabled selected>Select Your Project Type</option>
+          <option>Full Home Remodel</option>
+          <option>Kitchen/Bathroom Renovation</option>
+          <option>Interior Decoration</option>
+          <option>Design Consultation</option>
+          <option>Other</option>
+        </select>
+        <label class="footer-label">Project Location</label>
+
+        <input type="text" placeholder="Project Location" required>
+        <label class="footer-label">Message</label>
+
+        <textarea rows="4" placeholder="Tell me more about your project"></textarea>
+        <button type="submit">Request Free Estimate</button>
+      </form>
+    </div>
+    </section>
+    <!-- footer -->
+    <footer class="site-footer">
+    <nav class="footer-nav">
+      <a href="./index.html">HOME</a>
+      <a href="./about.html">ABOUT</a>
+      <a href="./process.html">PROCESS</a>
+      <a href="./services1.html">SERVICES</a>
+      <a href="./gallery.html">PORTFOLIO</a>
+      <a href="./contact.html">CONTACT</a>
+    </nav>
+    
+    <div class="footer-logo">
+      <img src="./fologo.png" alt="Home Studio by B" />
+    </div>
+    
+    
+    <div class="social-icons">
+      <a href="https://www.instagram.com/homestudiobyb?igsh=MWhmaG5pa3R3bHUybQ%3D%3D&utm_source=qr" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100093190297644&mibextid=LQQJ4d" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+    </div>
+    
+    <div class="footer-bottom">
+      <span>Copyright</span>
+      <span>2024. All Right Reserves</span>
+    </div>
+    </footer>
+
+  
+    <script >
+        function toggleImage(container) {
+      const images = container.querySelectorAll('.image');
+      images.forEach(img => img.classList.toggle('visible'));
+    }
+    
+      </script>
+<script src="./script.js"></script>
+</body>
+</html>
