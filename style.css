@@ -1101,7 +1101,7 @@ object-fit: contain;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
-  /* padding-top: 4.5rem;  */
+  padding-top: 6.5rem; 
 }
 
 .hero-content p {
