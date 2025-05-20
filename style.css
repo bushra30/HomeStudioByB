@@ -2627,6 +2627,7 @@ textarea::placeholder {
 }
 /* Page transition effect */
 /* Slide-and-Fade Page Transition */
+/* Slide-up + Fade-in animation for full page */
 body {
   opacity: 0;
   transform: translateY(50px);

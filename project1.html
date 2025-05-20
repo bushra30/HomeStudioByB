@@ -192,34 +192,51 @@
     <script src="./script.js"></script>
 
     <script>
-      // Slide in on page load
+      const transitionKey = 'doPageTransition';
+    
+      // Only run animation if navigation was triggered
       window.addEventListener('DOMContentLoaded', () => {
-        setTimeout(() => {
+        if (sessionStorage.getItem(transitionKey) === 'true') {
           document.body.classList.add('page-enter');
-        }, 50); // Small delay to trigger transition
+          sessionStorage.removeItem(transitionKey); // clear so it only runs once
+        } else {
+          document.body.style.opacity = '1';
+          document.body.style.transform = 'none';
+        }
       });
     
-      // Slide out on link click
+      // Attach click handler to all internal links
       document.querySelectorAll('a').forEach(link => {
         const href = link.getAttribute('href');
-        if (!href || href.startsWith('#') || href.startsWith('javascript')) return;
     
-        link.addEventListener('click', function (e) {
+        // Skip external, anchors, javascript, or blank links
+        const isInternal = href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('javascript');
+        if (!isInternal) return;
+    
+        link.addEventListener('click', e => {
           e.preventDefault();
-          const url = this.href;
     
-          // Start slide-out effect
+          // Prevent double-triggering
+          if (sessionStorage.getItem(transitionKey) === 'true') return;
+    
+          const url = link.href;
+    
+          // Set transition flag
+          sessionStorage.setItem(transitionKey, 'true');
+    
+          // Start exit animation
           document.body.classList.remove('page-enter');
           document.body.style.opacity = '0';
           document.body.style.transform = 'translateY(50px)';
     
-          // Navigate after transition
+          // Navigate after animation
           setTimeout(() => {
             window.location.href = url;
-          }, 800); // Match transition duration
+          }, 800); // match the transition duration
         });
       });
     </script>
+    
     
   
 </body>
