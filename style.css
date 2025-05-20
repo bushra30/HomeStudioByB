@@ -2094,6 +2094,7 @@ body {
  
   overflow: hidden;
   position: relative;
+  z-index: 1;
 }
 
 .hero-img video {
