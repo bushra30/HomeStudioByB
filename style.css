@@ -2491,12 +2491,13 @@ textarea::placeholder {
   font-size: clamp(28px, 6vw, 40px);
   font-weight: 700;
   margin-bottom: 20px;
+  color: rgb(253, 252, 238);
 }
 
 .gallery-button {
   background-color: #111;
   color: white;
-  padding: 12px 24px;
+  padding: 20px 28px;
   font-size: 16px;
   border-radius: 10px;
   border: none;
@@ -2515,7 +2516,7 @@ textarea::placeholder {
 }
 
 .gallery-masonry {
-  column-count: 3;
+  column-count: 4;
   column-gap: 20px;
   padding: 0 20px 40px;
 }
