@@ -3,112 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact | Home Studio by B</title>
+  <title>Masonry Gallery with Lightbox</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="./style.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
   <style>
     * {
       box-sizing: border-box;
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 20px;
+      padding: 0;
+      background-color: black;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
     }
 
     #gallery {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin: 0;
+      column-count: 3;
+      column-gap: 15px;
       padding: 0;
     }
 
     .lightboximg {
-      width: 32%;
-      margin-bottom: 20px;
-      display: flex;
-    }
-
-    .lightboximg a {
+      display: inline-block;
+      margin-bottom: 15px;
       width: 100%;
-      height: 0;
-      padding-top: 60%;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
+    }
+
+    .lightboximg img {
+      width: 100%;
+      height: auto;
       display: block;
+      border-radius: 10px;
+      cursor: pointer;
     }
 
-    .noverlay {
-      position: fixed;
-      top: 0; bottom: 0; left: 0; right: 0;
-      z-index: 1000;
-      background: rgba(0, 0, 0, 0.75);
+    @media (max-width: 1024px) {
+      #gallery {
+        column-count: 2;
+      }
     }
 
-    .noverlay .content {
+    @media (max-width: 600px) {
+      #gallery {
+        column-count: 1;
+      }
+    }
+
+    /* Lightbox Overlay */
+    .lightbox-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.9);
       display: flex;
       justify-content: center;
       align-items: center;
-      pointer-events: none;
+      z-index: 9999;
+      display: none;
+      flex-direction: column;
     }
 
-    .noverlay .content img {
-      max-width: 90vw;
-      max-height: 90vh;
+    .lightbox-overlay img {
+      max-width: 90%;
+      max-height: 80vh;
       border-radius: 10px;
-      pointer-events: auto;
     }
 
-    .noverlay button {
+    .lightbox-controls {
       position: absolute;
-      border: 0;
-      background: #fff;
-      font-size: 20px;
-      padding: 10px;
-      cursor: pointer;
-      z-index: 1001;
-    }
-
-    #close {
       top: 10px;
-      right: 10px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 30px;
     }
 
-    .lightnav {
+    .lightbox-controls button {
+      background: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .lightbox-navigation {
+      position: absolute;
       top: 50%;
       transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 30px;
     }
 
-    .prev {
-      left: 10px;
-    }
-
-    .next {
-      right: 10px;
-    }
-
-    @media (max-width: 768px) {
-      .lightboximg {
-        width: 100%;
-      }
+    .lightbox-navigation button {
+      background: rgba(255,255,255,0.8);
+      border: none;
+      padding: 10px 15px;
+      font-size: 25px;
+      cursor: pointer;
+      border-radius: 50%;
     }
   </style>
 </head>
-
 <body>
-
-  <!-- Header -->
   <header class="navbar">
     <div class="logo">
       <a href="./index.html">
@@ -140,82 +146,44 @@
       <li><a href="./contact.html">Contact</a></li>
     </ul>
   </header>
+  <section class="gshowcase-section">
+    <h2>  Serene Rooms
 
-  <!-- Gallery -->
-  <section>
-    <section class="gshowcase-section">
-        <h2>
-            Serene Rooms
-
-
-        </h2>
-        <ul id="gallery">
-            <li class="lightboximg">
-              <a href="./images/s1.avif" style="background-image:url('./images/s1.avif')"></a>
-            </li>
-            <li class="lightboximg">
-              <a href="./images/s2.avif" style="background-image:url('./images/s2.avif')"></a>
-            </li>
-            <li class="lightboximg">
-              <a href="./images/s3.avif" style="background-image:url('./images/s3.avif')"></a>
-            </li>
-            <li class="lightboximg">
-              <a href="./images/s4.avif" style="background-image:url('./images/s4.avif')"></a>
-            </li>
-            <li class="lightboximg">
-              <a href="./images/s5.avif" style="background-image:url('./images/s5.avif')"></a>
-            </li>
-            <li class="lightboximg">
-              <a href="./images/s6.avif" style="background-image:url('./images/s6.avif')"></a>
-            </li>
-            <li class="lightboximg">
-              <a href="./images/s7.avif" style="background-image:url('./images/s7.avif')"></a>
-            </li>
-            <li class="lightboximg">
-              <a href="./images/s8.avif" style="background-image:url('./images/s8.avif')"></a>
-            </li>
-           
-            <li class="lightboximg">
-              <a href="./images/s10.avif" style="background-image:url('./images/s10.avif')"></a>
-            </li>
-            <li class="lightboximg">
-              <a href="./images/s11.avif" style="background-image:url('./images/s11.avif')"></a>
-            </li>
-            <li class="lightboximg">
-              <a href="./images/s12.avif" style="background-image:url('./images/s12.avif')"></a>
-            </li>
-            <li class="lightboximg">
-              <a href="./images/s13.avif" style="background-image:url('./images/s13.avif')"></a>
-            </li>
-            <li class="lightboximg">
-              <a href="./images/s14.avif" style="background-image:url('./images/s14.avif')"></a>
-            </li>
-           
-            
-            <li class="lightboximg">
-              <a href="./images/s17.avif" style="background-image:url('./images/s17.avif')"></a>
-            </li>
-            <li class="lightboximg">
-              <a href="./images/s18.avif" style="background-image:url('./images/s18.avif')"></a>
-            </li>
-            <li class="lightboximg">
-              <a href="./images/s19.avif" style="background-image:url('./images/s19.avif')"></a>
-            </li>
-           
-            <li class="lightboximg">
-              <a href="./images/s21.avif" style="background-image:url('./images/s21.avif')"></a>
-            </li>
-            <li class="lightboximg">
-              <a href="./images/s22.avif" style="background-image:url('./images/s22.avif')"></a>
-            </li>
-          </ul>
-          
-          
-  </section>
+    </h2>
+  <ul id="gallery">
+    <li class="lightboximg"><img src="./images/s1.avif" alt="Gallery Image 1" /></li>
+    <li class="lightboximg"><img src="./images/s2.avif" alt="Gallery Image 2" /></li>
+    <li class="lightboximg"><img src="./images/s3.avif" alt="Gallery Image 3" /></li>
+    <li class="lightboximg"><img src="./images/s4.avif" alt="Gallery Image 4" /></li>
+    <li class="lightboximg"><img src="./images/s5.avif" alt="Gallery Image 5" /></li>
+    <li class="lightboximg"><img src="./images/s6.avif" alt="Gallery Image 6" /></li>
+    <li class="lightboximg"><img src="./images/s7.avif" alt="Gallery Image 7" /></li>
+    <li class="lightboximg"><img src="./images/s8.avif" alt="Gallery Image 8" /></li>
+    <li class="lightboximg"><img src="./images/s10.avif" alt="Gallery Image 9" /></li>
+    <li class="lightboximg"><img src="./images/s11.avif" alt="Gallery Image 10" /></li>
+    <li class="lightboximg"><img src="./images/s12.avif" alt="Gallery Image 11" /></li>
+    <li class="lightboximg"><img src="./images/s13.avif" alt="Gallery Image 13" /></li>
+    <li class="lightboximg"><img src="./images/s14.avif" alt="Gallery Image 14" /></li>
+    <li class="lightboximg"><img src="./images/s17.avif" alt="Gallery Image 15" /></li>
+    <li class="lightboximg"><img src="./images/s18.avif" alt="Gallery Image 17" /></li>
+    <li class="lightboximg"><img src="./images/s19.avif" alt="Gallery Image 18" /></li>
+    <li class="lightboximg"><img src="./images/s21.avif" alt="Gallery Image 19" /></li>
+    <li class="lightboximg"><img src="./images/s22.avif" alt="Gallery Image 20" /></li>
+  </ul>
+  
   </section>
 
-
-  <!-- Contact Section -->
+  <!-- Lightbox Overlay -->
+  <div class="lightbox-overlay" id="lightbox">
+    <div class="lightbox-controls">
+      <button id="closeBtn">Close ✖</button>
+    </div>
+    <div class="lightbox-navigation">
+      <button id="prevBtn">‹</button>
+      <button id="nextBtn">›</button>
+    </div>
+    <img id="lightbox-img" src="" alt="Large view" />
+  </div>
   <section class="contact-container">
     <div class="contact-info">
       <div class="info-box"><strong>EMAIL</strong><span>homestudiobyb@gmail.com</span></div>
@@ -294,43 +262,51 @@
     </div>
   </footer>
 
-  <!-- Lightbox Script -->
   <script>
-    $(document).on('click', '.lightboximg a', function (e) {
-      e.preventDefault();
-      var src = $(this).prop('href');
-      $('#gallery li').removeClass('active');
-      $(this).parent().addClass('active');
-      $('body').append(
-        '<div class="noverlay">' +
-          '<button id="close">X</button>' +
-          '<button class="lightnav prev">«</button>' +
-          '<button class="lightnav next">»</button>' +
-          '<div class="content"><img src="' + src + '"></div>' +
-        '</div>'
-      );
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.getElementById("closeBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const images = document.querySelectorAll(".lightboximg img");
+
+    let currentIndex = 0;
+
+    function showLightbox(index) {
+      currentIndex = index;
+      lightboxImg.src = images[currentIndex].src;
+      lightbox.style.display = "flex";
+    }
+
+    function closeLightbox() {
+      lightbox.style.display = "none";
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % images.length;
+      lightboxImg.src = images[currentIndex].src;
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      lightboxImg.src = images[currentIndex].src;
+    }
+
+    images.forEach((img, index) => {
+      img.addEventListener("click", () => showLightbox(index));
     });
 
-    $(document).on('click', '#close', function () {
-      $('.noverlay').remove();
-      $('#gallery .active').removeClass('active');
-    });
+    closeBtn.addEventListener("click", closeLightbox);
+    nextBtn.addEventListener("click", showNext);
+    prevBtn.addEventListener("click", showPrev);
 
-    $(document).on('click', '.lightnav', function () {
-      var current = $('#gallery .active');
-      var next;
-      if ($(this).hasClass('next')) {
-        next = current.next().length ? current.next() : $('#gallery li').first();
-      } else {
-        next = current.prev().length ? current.prev() : $('#gallery li').last();
-      }
-      $('#gallery li').removeClass('active');
-      next.addClass('active');
-      var newSrc = next.find('a').prop('href');
-      $('.noverlay .content img').attr('src', newSrc);
+    // Close on Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") showNext();
+      if (e.key === "ArrowLeft") showPrev();
     });
   </script>
 
-  <script src="./script.js"></script>
 </body>
 </html>
