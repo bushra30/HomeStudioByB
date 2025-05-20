@@ -38,7 +38,7 @@
   }
 
   .nav-links a {
-    color: white;
+    color: rgb(253, 252, 238);
     text-decoration: none;
     font-size: 0.95rem;
   }
@@ -318,7 +318,7 @@ padding: 1rem;
 .contact-info {
 background-color: #2a2a2a;
 border-radius: 10px;
-color: #eaeaea;
+color: rgb(253, 252, 238);
 display: flex;
 flex-direction: column;
 gap: 1.2rem;
@@ -436,7 +436,7 @@ margin-bottom: 2rem;
 }
 
 .footer-nav a {
-color: #fff;
+color: rgb(253, 252, 238);
 text-decoration: none;
 font-size: 0.95rem;
 font-weight: 500;
@@ -1472,14 +1472,14 @@ object-fit: contain;
 .signature {
   font-family: 'Great Vibes', cursive;
   font-size: 2.2rem;
-  color: white;
+  color: rgb(253, 252, 238);
   margin-bottom: 1.2rem;
   font-weight: 100;
 }
 
 .intro-text p {
   font-size: 1rem;
-  color: #ccc;
+  color: rgb(253, 252, 238);
   padding: 0 1rem;
   text-align: justify;
 }
@@ -1512,11 +1512,12 @@ object-fit: contain;
   font-size: 2.6rem;
   font-weight: 600;
   /* padding: 3rem; */
+  color: rgb(253, 252, 238);
 }
 
 .designer-content p {
   font-size: 1rem;
-  color: #ccc;
+  color: rgb(253, 252, 238);
   margin-top: 1rem;
   text-align: justify;
   
@@ -1560,7 +1561,7 @@ object-fit: contain;
 .tab-btn {
   padding: 0.6rem 1.4rem;
   background: #000;
-  color: white;
+  color: rgb(253, 252, 238);
   border: none;
   font-size: 1rem;
   cursor: pointer;
@@ -1573,7 +1574,7 @@ object-fit: contain;
 }
 
 .tab-content p {
-  color: #fff;
+  color: rgb(253, 252, 238);
   font-size: 1.1rem;
   font-weight: 500;
   line-height: 1.6;
@@ -1808,6 +1809,7 @@ min-width: 250px;
 .faq-left h2 {
 font-size: 3rem;
 font-weight: 700;
+color: rgb(253, 252, 238);
 }
 
 .faq-right {
@@ -2113,6 +2115,7 @@ body {
   background: none;
   border: none;
   font-size: 20px;
+  color: rgb(253, 252, 238);
   /* font-weight: bold; */
 }
 
@@ -2264,6 +2267,7 @@ body {
   text-decoration: none;
   text-transform: none;
   margin-bottom: 40px;
+  color: rgb(253, 252, 238);
 }
 .gallery-section h2{
   font-family: "Inter", "Inter Placeholder", sans-serif;
@@ -2488,7 +2492,7 @@ textarea::placeholder {
 }
 
 .gallery-heading h1 {
-  font-size: clamp(28px, 6vw, 40px);
+  font-size: clamp(28px, 6vw, 48px);
   font-weight: 700;
   margin-bottom: 20px;
   color: rgb(253, 252, 238);
@@ -2582,12 +2586,13 @@ textarea::placeholder {
 .cta-box p {
   margin-bottom: 16px; /* Adjust spacing as needed */
   font-size: 1.2rem;
+  color: rgb(253, 252, 238);
 }
 
 .cta-button {
   display: inline-block;
   background-color: #000;
-  color: #fff;
+  color: rgb(253, 252, 238);
   /* padding: 12px 12px; */
   border-radius: 8px;
   transition: all 0.3s ease;
