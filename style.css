@@ -983,7 +983,7 @@ object-fit: contain;
   padding-left: 1.5rem;
   font-size: 0.95rem;
   line-height: 1.8;
-  color: #eee;
+  color: rgb(253, 252, 238);
 }
 
 .service-list li {
@@ -1106,7 +1106,7 @@ object-fit: contain;
 
 .hero-content p {
   font-size: 1rem;
-  color: #ccc;
+  color: rgb(250, 247, 245);
   max-width: 320px;
   text-align: right;
   margin-bottom: 1.2rem;
@@ -1264,14 +1264,14 @@ object-fit: contain;
 .oprocess-page h1 {
   font-size: 7rem;
   font-weight: 700;
-  color: #f3f0e9;
+  color: rgb(253, 252, 238);
   margin-bottom: 0.25rem;
   line-height: 1;
 }
 
 .oprocess-page .subtitle {
   font-size: 1rem;
-  color: #ccc;
+  color: rgb(253, 252, 238);
   margin-bottom: 4rem;
   text-align: left;
 }
@@ -1376,7 +1376,7 @@ object-fit: contain;
 }
 /* STEP CARD GENERAL */
 .step-card {
-  background-color: #f3f0e9;
+  background-color: rgb(253, 252, 238);
   border-radius: 10px;
   padding: 1.5rem 2rem;
   margin-bottom: 200px;
@@ -1428,7 +1428,7 @@ object-fit: contain;
   padding: 0.5rem 0; /* add gentle spacing */
 }
 .step-content .text h2 {
-  font-size: 1.6rem;
+  font-size: 2.6rem;
   font-weight: 700;
   margin-bottom: 0; /* remove any extra spacing */
 }
@@ -2166,6 +2166,7 @@ body {
   letter-spacing: -0.09em;
   line-height: 90%;
   /* color: #1d322d; */
+  color: rgb(253, 252, 238);
   text-align: left;
   text-decoration: none;
   text-transform: none;
