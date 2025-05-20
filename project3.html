@@ -195,6 +195,35 @@
     <script src="./script.js"></script>
 
   
-  
+    <script>
+      // Slide in on page load
+      window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+          document.body.classList.add('page-enter');
+        }, 50); // Small delay to trigger transition
+      });
+    
+      // Slide out on link click
+      document.querySelectorAll('a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('javascript')) return;
+    
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          const url = this.href;
+    
+          // Start slide-out effect
+          document.body.classList.remove('page-enter');
+          document.body.style.opacity = '0';
+          document.body.style.transform = 'translateY(50px)';
+    
+          // Navigate after transition
+          setTimeout(() => {
+            window.location.href = url;
+          }, 800); // Match transition duration
+        });
+      });
+    </script>
+    
 </body>
 </html>

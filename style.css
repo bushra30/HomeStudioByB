@@ -2625,3 +2625,15 @@ textarea::placeholder {
 .card-link{
   text-decoration: none;
 }
+/* Page transition effect */
+/* Slide-and-Fade Page Transition */
+body {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+body.page-enter {
+  opacity: 1;
+  transform: translateY(0);
+}
