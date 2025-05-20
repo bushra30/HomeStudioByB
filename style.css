@@ -1184,6 +1184,7 @@ object-fit: contain;
   font-size: 1rem;
   color: #ccc;
   margin-bottom: 2rem;
+  text-align: left;
 }
 
 .step-card {
@@ -1256,7 +1257,7 @@ object-fit: contain;
   }
 
   .oprocess-page .subtitle {
-    text-align: center;
+    text-align: left;
   }
 }
 .oprocess-page {
@@ -1351,7 +1352,7 @@ object-fit: contain;
   }
 
   .oprocess-page .subtitle {
-    text-align: center;
+    text-align: left;
   }
 
   .step-card {
