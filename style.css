@@ -2281,6 +2281,7 @@ body {
   text-decoration: none;
   text-transform: none;
   margin-bottom: 40px;
+  color: rgb(250, 247, 245);
 }
 .gallery-grid {
   display: flex;
