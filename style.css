@@ -773,6 +773,7 @@ object-fit: contain;
     font-size: 2rem;
     font-weight: 700;
     line-height: 1.4;
+    color: rgb(253, 252, 238);
   }
   
   .text-right {
@@ -787,6 +788,7 @@ object-fit: contain;
   .text-right p {
     font-size: 1rem;
     line-height: 1.8;
+    color: rgb(253, 252, 238);
   }
   
   @media (max-width: 768px) {
@@ -863,6 +865,7 @@ object-fit: contain;
   .showcase-section h2 ,.comparison-section h2{
     font-size: 7rem;
     margin-bottom: 2rem;
+    color: rgb(253, 252, 238);
     text-align: left; /* or whatever your desktop alignment is */
   }
   
@@ -2142,6 +2145,7 @@ body {
   text-decoration: none;
   text-transform: none;
   margin-bottom: 40px;
+  color: rgb(253, 252, 238);
 }
 
 
