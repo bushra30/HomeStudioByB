@@ -1170,7 +1170,7 @@ object-fit: contain;
 
 .oprocess-page {
   /* padding: 3rem 1rem; */
-  max-width: 1200px;
+  max-width: 1150px;
   margin: auto;
 }
 
@@ -2635,6 +2635,19 @@ body {
 }
 
 body.page-enter {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Initial state: hidden and below */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+/* When in view: visible and in place */
+.fade-up.show {
   opacity: 1;
   transform: translateY(0);
 }

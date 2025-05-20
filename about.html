@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Home Studio by B</title>
+  <link rel="icon" type="image/png" href="./fologo.png">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Great+Vibes&display=swap"
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Gwendolyn:wght@400;700&display=swap" rel="stylesheet">
@@ -98,8 +100,11 @@
       <img src="./bushra1.jpg" alt="Bushra Hamidi" />
     </div>
     <div class="designer-content">
-      <h2>Meet the Designer</h2>
-      <h3 class="signature" style="margin-top: 1rem;">Bushra Hamidi</h3>
+      <!-- <h2>Meet the Designer</h2>
+      <h3 class="signature" style="margin-top: 1rem;">Bushra Hamidi</h3> -->
+      <h2 class="fade-up">Meet the Designer</h2>
+<h3 class="signature fade-up" style="margin-top: 1rem;">Bushra Hamidi</h3>
+
       <p>
         As a Software Quality Engineer, I've spent years fine-tuning processes and solving complex problems, always with
         an eye for detail and precision. My commitment to quality has been the foundation of my career, and it naturally
@@ -277,6 +282,24 @@
           window.location.href = url;
         }, 800); // match the transition duration
       });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const fadeUpElements = document.querySelectorAll('.fade-up');
+  
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target); // 👈 ensures animation runs only once
+          }
+        });
+      }, {
+        threshold: 0.3
+      });
+  
+      fadeUpElements.forEach(el => observer.observe(el));
     });
   </script>
   
