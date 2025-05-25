@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="./style.css">
 
-<!-- <style>
+<style>
 .dropdown-menu {
     backdrop-filter: blur(5px);
     background-color: rgba(138, 59, 20, 0.45);
@@ -104,14 +104,16 @@
 .dropdown-menu li:nth-child(3) {
     background-color: rgba(33, 31, 30, 0.95);
 }
-</style> -->
+
+
+</style>
 
   
   
 </head>
 <body>
-
-  <header class="navbar">
+<!-- Remove wrapper and keep original content structure -->
+<header class="navbar">
     <div class="logo">
       <a href="./index.html">
         <img src="./fologo.png" alt="Logo">
@@ -239,10 +241,21 @@
     </div>
     </footer>
 
-  
-   
-    
-    
 <script src="./script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('a[href^="./"]:not([href^="./#"]):not([href$=".png"])');
+    
+    // Simple link handling without transitions
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            if (link.hostname === window.location.hostname) {
+                // Allow normal navigation
+                return true;
+            }
+        });
+    });
+});
+</script>
 </body>
 </html>

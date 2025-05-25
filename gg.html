@@ -62,6 +62,9 @@
       border-radius: 14px;
       text-align: center;
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      width: fit-content;
+      max-width: 80%;
+      background-color: rgba(0, 0, 0, 0.5);
     }
 
     .megh-overlay-banner h2 {
@@ -135,20 +138,54 @@
     document.getElementById('megh-col4')
   ];
 
-  images.forEach((src, idx) => {
+  // Add more images to ensure continuous scrolling
+  const extendedImages = [...images, ...images, ...images];
+
+  extendedImages.forEach((src, idx) => {
     const img = document.createElement('img');
     img.src = src;
     columns[idx % 4].appendChild(img);
   });
 
   const gallery = document.getElementById('megh-gallery');
+  
+  // Define scroll speeds and directions for each column
+  const scrollConfig = [
+    { speed: 0.5, direction: 1 },    // Column 1: slower, downward
+    { speed: 0.8, direction: -1 },   // Column 2: faster, upward
+    { speed: 0.6, direction: 1 },    // Column 3: medium, downward
+    { speed: 0.9, direction: -1 }    // Column 4: fastest, upward
+  ];
+
+  let lastScrollTop = 0;
+  let scrollPositions = [0, 0, 0, 0];
+
   function smoothScroll() {
     const scrollTop = gallery.scrollTop;
+    const scrollDelta = scrollTop - lastScrollTop;
+    lastScrollTop = scrollTop;
+
     columns.forEach((col, i) => {
-      col.style.transform = `translateY(${scrollTop * 0.05 * i}px)`;
+      // Update scroll position for each column
+      scrollPositions[i] += scrollDelta * scrollConfig[i].speed * scrollConfig[i].direction;
+      
+      // Apply the transform
+      col.style.transform = `translateY(${scrollPositions[i]}px)`;
+
+      // Reset position when column goes too far
+      if (Math.abs(scrollPositions[i]) > col.offsetHeight) {
+        scrollPositions[i] = 0;
+      }
     });
+
     requestAnimationFrame(smoothScroll);
   }
+
+  // Initialize scroll positions
+  columns.forEach((col, i) => {
+    scrollPositions[i] = 0;
+  });
+
   requestAnimationFrame(smoothScroll);
 </script>
 
