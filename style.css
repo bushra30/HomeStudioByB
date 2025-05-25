@@ -724,7 +724,22 @@ object-fit: contain;
     margin: auto;
     overflow: hidden;
     border-radius: 10px;
-  }
+    height: 700px;
+}
+
+/* Tablet devices */
+@media (max-width: 768px) {
+    .comparison-container {
+        height: 500px;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+    .comparison-container {
+        height: 300px;
+    }
+}
   
   .comparison-img img {
     width: 100%;
