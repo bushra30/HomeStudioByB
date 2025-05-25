@@ -1141,7 +1141,7 @@ object-fit: contain;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
-  padding-top: 6.5rem; 
+  /* padding-top: 6.5rem;  */
 }
 
 .hero-content p {
@@ -2214,7 +2214,7 @@ body {
   text-decoration: none;
   text-transform: none;
   margin-bottom: 40px;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .gshowcase-section{
