@@ -1613,7 +1613,7 @@ object-fit: contain;
   padding: 2rem;
   max-width: 1200px;
   text-align: center;
-  
+
   border-radius: 10px;
 }
 
@@ -1697,7 +1697,7 @@ object-fit: contain;
   }
 }
 .services-section {
-padding: 4rem 2rem;
+padding: 6rem 2rem;
 text-align: center;
 background-color: #000;
 color: #fff;
@@ -1719,7 +1719,8 @@ margin: auto;
 }
 
 .service-card {
-background-color: #f3f0e9;
+/* background-color: #f3f0e9; */
+background-color: rgb(240, 240, 240);
 color: #000;
 border-radius: 1rem;
 padding: 2rem;
@@ -2073,7 +2074,7 @@ body {
   text-align: right;
   max-width: 300px;
   margin-left: auto;
-  margin-top: 5rem;
+  margin-top: 13rem;
 }
 
 .cta-box p {
