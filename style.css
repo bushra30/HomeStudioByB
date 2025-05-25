@@ -987,7 +987,7 @@ object-fit: contain;
 .services-detail {
   display: flex;
   gap: 2rem;
-  padding: 3rem 2rem;
+  padding: 3rem 1rem;
   max-width: 1200px;
   margin: auto;
   flex-wrap: wrap;
@@ -1022,18 +1022,19 @@ object-fit: contain;
   list-style: disc;
   padding-left: 1.5rem;
   font-size: 0.95rem;
-  line-height: 1.8;
+  line-height: 1.4;
   color: rgb(253, 252, 238);
+  margin-top: 1rem;
 }
 
 .service-list li {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .closing-text {
   margin-top: 1.5rem;
   font-size: 0.95rem;
-  color: #ccc;
+  color: rgb(253, 252, 238);
 }
 
 .services-box {
@@ -1043,8 +1044,16 @@ object-fit: contain;
 }
 
 .services-box h3 {
-  font-size: 2.6rem;
+  font-family: "Inter", "Inter Placeholder", sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1.1em;
+  text-align: left;
   color: #000;
+  text-decoration: none;
+  text-transform: none;
   margin-bottom: 1rem;
 }
 
@@ -1080,28 +1089,41 @@ object-fit: contain;
 }
 
 .contact-box h2 {
-  font-size: 2rem;
+  font-family: "Inter", "Inter Placeholder", sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1.1em;
+  text-align: left;
+  color: rgb(253, 252, 238);
+  text-decoration: none;
+  text-transform: none;
   margin-bottom: 2.5rem;
-  
+
 }
 
 .contact-item {
   margin-bottom: 1rem;
   background: rgba(255, 255, 255, .05);
   border-radius: 10px;
-  padding: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .contact-item label {
-  display: block;
+  display: inline-block;
   font-size: 0.8rem;
   color: #aaa;
-  margin-bottom: 0.3rem;
+  min-width: 60px;
 }
 
 .contact-item p {
   font-size: 0.95rem;
   font-weight: 500;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
@@ -2745,4 +2767,9 @@ body.page-enter {
 
 .footer-label {
   margin-bottom: 8px;
+}
+
+.services-detail h4 {
+  margin-bottom: 1rem;
+  color: rgb(253, 252, 238);
 }
