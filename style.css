@@ -710,14 +710,31 @@ object-fit: contain;
     font-size: 4rem;
     margin-bottom: 1rem;
   } */
-  .comparison-section h2 {
-    /* font-size: 6rem; */
+  /* .comparison-section h2 {
+   
     margin-bottom: 2rem;
-    max-width: 1200px;    /* Same as container */
-    margin-left: auto;    /* Center horizontally */
+    max-width: 1200px;   
+    margin-left: auto;    
     margin-right: auto;
-    text-align: left;     /* Align text left */
-  }
+    text-align: left;     
+  } */
+  .comparison-section h2 {
+    font-family: "Inter", "Inter Placeholder", sans-serif;
+    font-size: 129px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: -10.2px;
+    line-height: 80%;
+    color: rgb(253, 252, 238);
+    text-decoration: none;
+    text-transform: none;
+    margin-bottom: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
   .comparison-container {
     position: relative;
     /* max-width: 900px; */
@@ -791,7 +808,7 @@ object-fit: contain;
   
   .text-left h2 {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.4;
     color: rgb(253, 252, 238);
   }
@@ -882,7 +899,7 @@ object-fit: contain;
       grid-row: span 1; /* Reset for mobile */
     }
   }
-  .showcase-section h2 ,.comparison-section h2{
+  .showcase-section h2 {
     font-size: 7rem;
     margin-bottom: 2rem;
     color: rgb(253, 252, 238);

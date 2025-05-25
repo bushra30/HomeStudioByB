@@ -358,4 +358,14 @@
           document.body.style.opacity = '0';
           document.body.style.transform = 'translateY(50px)';
     
-          // Nav
+          // Navigate after animation
+          setTimeout(() => {
+            window.location.href = url;
+          }, 800); // match the transition duration
+        });
+      });
+    </script>
+    
+    
+</body>
+</html>
