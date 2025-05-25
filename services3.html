@@ -54,7 +54,7 @@
   
       <!-- Services dropdown -->
       <li class="dropdown">
-        <a href="./services1.html">Services ▾</a>
+        <a href="./index.html#home-services">Services ▾</a>
         <ul class="dropdown-menu">
           <li><a href="./services1.html">Design Consultation</a></li>
           <li><a href="./services2.html">Design and Build</a></li>
@@ -105,25 +105,25 @@
   <section class="services-detail">
     <div class="left-column">
       <div class="highlight-box">
-        Our Room Refresh service offers an easy way to revitalize your space without extensive renovation. From personalized mood boards to curated decor, we provide everything you need for a cohesive update. Ideal for spaces that need a fresh look, whether it’s a cozy living room, a fun kids’ room, or a sophisticated dining area.
+        Our Room Refresh service offers an easy way to revitalize your space without extensive renovation. From personalized mood boards to curated decor, we provide everything you need for a cohesive update. Ideal for spaces that need a fresh look, whether it's a cozy living room, a fun kids' room, or a sophisticated dining area.
 
 
 
 
       </div>
   
-      <h4 style="color: rgb(253, 252, 238);">What’s Included:</h4>
+      <h4 style="color: rgb(253, 252, 238);">What's Included:</h4>
       <ul class="service-list">
         <li><strong>Initial Consultation:</strong> Getting to know your style and goals for the room.</li>
         <li><strong>3D Renderings:</strong> Visualizing the new look before committing.</li>
         <li><strong>Mood Boards & Color Scheme Development:</strong> Inspiring design concepts and color palettes.</li>
-        <li><strong>Shopping List for Decor & Furniture:</strong> Curated items tailored to your room’s needs.</li>
+        <li><strong>Shopping List for Decor & Furniture:</strong> Curated items tailored to your room's needs.</li>
         <li><strong>Final Styling & Contractor Coordination Tips:</strong> Adding the perfect accessories and finishing touches to elevate your space, with guidance on contractor coordination if installation is required.</li>
       </ul>
       
   
       <p class="closing-text">
-        By choosing HomeStudioByB's services, you can transform your space into a beautifully designed, functional, and personalized environment that you’ll love experiencing every day.
+        By choosing HomeStudioByB's services, you can transform your space into a beautifully designed, functional, and personalized environment that you'll love experiencing every day.
       </p>
     </div>
   
@@ -154,33 +154,42 @@
   </section>
   <section class="contact-container">
     <div class="contact-info">
-      <div class="info-box"><strong>EMAIL</strong><span>homestudiobyb@gmail.com</span></div>
-      <div class="info-box"><strong>PHONE</strong><span>+1 (310) 880-0672</span></div>
+      <div class="info-box email-box">
+        <strong>EMAIL</strong>
+        <span>homestudiobyb@gmail.com</span>
+      </div>
+      <div class="info-box phone-box">
+        <strong>PHONE</strong>
+        <span>+1 (310) 880-0672</span>
+      </div>
       <div class="info-box hours">
         <strong>OPENING HOURS</strong>
         <ul>
-          <li><span>🕒 Monday</span><span>9.00 AM – 6.00 PM</span></li>
-          <li><span>🕒 Tuesday</span><span>9.00 AM – 6.00 PM</span></li>
-          <li><span>🕒 Wednesday</span><span>9.00 AM – 6.00 PM</span></li>
-          <li><span>🕒 Thursday</span><span>9.00 AM – 6.00 PM</span></li>
-          <li><span>🕒 Friday</span><span>9.00 AM – 6.00 PM</span></li>
-          <li><span>🕒 Saturday</span><span>9.00 AM – 6.00 PM</span></li>
-          <li><span>🕒 Sunday</span><span>Closed</span></li>
+          <li><span><i class="fa-regular fa-clock clock-icon"></i>Monday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li><span><i class="fa-regular fa-clock clock-icon"></i>Tuesday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li><span><i class="fa-regular fa-clock clock-icon"></i>Wednesday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li><span><i class="fa-regular fa-clock clock-icon"></i>Thursday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li><span><i class="fa-regular fa-clock clock-icon"></i>Friday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li><span><i class="fa-regular fa-clock clock-icon"></i>Saturday</span><span>9.00 AM – 6.00 PM</span></li>
+          <li><span><i class="fa-regular fa-clock clock-icon"></i>Sunday</span><span>Closed</span></li>
         </ul>
       </div>
     </div>
     
     <div class="contact-form">
-      <h2>Let’s Connect!</h2>
+      <h2>Let's Connect!</h2>
       <p>Whether you're looking to redesign your home, remodel your kitchen, or need expert advice on interiors, we're here to help. Reach out today, and let's bring your design dreams to life!</p>
       
       <form>
         <div class="row">
-          <label class="footer-label">Name</label>
-          <input type="text" placeholder="Enter Your Full Name" required>
-          <!-- <label>Phone</label> -->
-          <label class="footer-label">Phone</label>
-          <input type="tel" placeholder="Enter Your Phone Number" required>
+          <div>
+            <label class="footer-label">Name</label>
+            <input type="text" placeholder="Enter Your Full Name" required>
+          </div>
+          <div>
+            <label class="footer-label">Phone</label>
+            <input type="tel" placeholder="Enter Your Phone Number" required>
+          </div>
         </div>
         <label class="footer-label">Email</label>
         <input type="email" placeholder="Enter Your Email" required>
@@ -233,46 +242,5 @@
     </div>
     </footer>
     <script src="./script.js"></script>
-    <script>
-      const transitionKey = 'doPageTransition';
-    
-      // Only run animation if navigation was triggered
-      window.addEventListener('DOMContentLoaded', () => {
-        if (sessionStorage.getItem(transitionKey) === 'true') {
-          document.body.classList.add('page-enter');
-          sessionStorage.removeItem(transitionKey); // clear so it only runs once
-        } else {
-          document.body.style.opacity = '1';
-          document.body.style.transform = 'none';
-        }
-      });
-    
-      // Attach click handler to all internal links
-      document.querySelectorAll('a').forEach(link => {
-        const href = link.getAttribute('href');
-    
-        // Skip external, anchors, javascript, or blank links
-        const isInternal = href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('javascript');
-        if (!isInternal) return;
-    
-        link.addEventListener('click', e => {
-          e.preventDefault();
-    
-          // Prevent double-triggering
-          if (sessionStorage.getItem(transitionKey) === 'true') return;
-    
-          const url = link.href;
-    
-          // Set transition flag
-          sessionStorage.setItem(transitionKey, 'true');
-    
-          // Start exit animation
-          document.body.classList.remove('page-enter');
-          document.body.style.opacity = '0';
-          document.body.style.transform = 'translateY(50px)';
-    
-          // Navigate after animation
-          setTimeout(() => {
-            window.location.href = url;
-          }, 800); // match the transition duration
-    
+</body>
+</html>
