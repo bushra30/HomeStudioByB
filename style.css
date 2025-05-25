@@ -1120,8 +1120,8 @@ object-fit: contain;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 2rem 3rem;
-  gap: 2rem;
+  padding: 2rem 2rem;
+  /* gap: 2rem; */
   flex-wrap: wrap;
   position: relative;
 }
