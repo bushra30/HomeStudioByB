@@ -1905,9 +1905,9 @@ gap: 1rem;
   justify-content: center;
   border-radius: 50%;
   background-color: rgba(243, 172, 133, 0);
-  color: rgba(255, 255, 255, 0.7);
-  opacity: 0.7;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  color: rgba(255, 255, 255, 0.5);
+  opacity: 0.5;
+  transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
@@ -1921,14 +1921,13 @@ gap: 1rem;
   bottom: 0;
   background-color: rgb(243, 172, 133);
   opacity: 0;
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: -1;
 }
 
 .faq-item:hover .facta {
   color: #fff;
   opacity: 1;
-  transform: rotate(45deg);
 }
 
 .faq-item:hover .facta::before {
@@ -1936,7 +1935,6 @@ gap: 1rem;
 }
 
 .faq-item.active .facta {
-  transform: rotate(45deg);
   color: #fff;
   opacity: 1;
 }
@@ -1947,29 +1945,29 @@ gap: 1rem;
 
 /* When unhovering, smoothly transition back */
 .facta {
-  transition: color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .facta::before {
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Add smooth transition for the answer */
 .faq-answer {
-  display: none;
-  padding: 0 1rem 1rem;
-  font-size: 0.95rem;
-  color: #ccc;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0 1rem;
 }
 
 .faq-item.active .faq-answer {
-  display: block;
+  max-height: 500px;
+  padding: 1rem;
 }
 
 .faq-item.active .facta {
-  transform: rotate(45deg);
-  background-color: rgb(243, 172, 133);
   color: #fff;
   opacity: 1;
 }
