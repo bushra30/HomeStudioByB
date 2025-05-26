@@ -292,10 +292,10 @@
     <button>Follow Us On Instagram</button>
   </div>
   <div class="megh-columns">
-    <div class="megh-column" id="megh-col1"></div>
-    <div class="megh-column" id="megh-col2"></div>
-    <div class="megh-column" id="megh-col3"></div>
-    <div class="megh-column" id="megh-col4"></div>
+    <div class="megh-column" id="megh-col1" style="transform: translateY(-294.5px);"></div>
+    <div class="megh-column" id="megh-col2" style="transform: translateY(-294.4px);"></div>
+    <div class="megh-column" id="megh-col3" style="transform: translateY(-294.8px);"></div>
+    <div class="megh-column" id="megh-col4" style="transform: translateY(-298px);"></div>
   </div>
 </div>
 
@@ -501,6 +501,13 @@
     // Add more images to ensure continuous scrolling
     const extendedImages = [...images, ...images, ...images];
   
+    // Get initial transform values
+    const initialTransforms = columns.map(col => {
+      const transform = col.style.transform;
+      const match = transform.match(/translateY\(([-\d.]+)px\)/);
+      return match ? parseFloat(match[1]) : 0;
+    });
+    
     extendedImages.forEach((src, idx) => {
       const img = document.createElement('img');
       img.src = src;
@@ -518,7 +525,7 @@
     ];
   
     let lastScrollTop = 0;
-    let scrollPositions = [0, 0, 0, 0];
+    let scrollPositions = initialTransforms; // Initialize with the initial transform values
   
     function smoothScroll() {
       const scrollTop = gallery.scrollTop;
@@ -533,18 +540,13 @@
         col.style.transform = `translateY(${scrollPositions[i]}px)`;
   
         // Reset position when column goes too far
-        if (Math.abs(scrollPositions[i]) > col.offsetHeight) {
-          scrollPositions[i] = 0;
+        if (Math.abs(scrollPositions[i] - initialTransforms[i]) > col.offsetHeight) {
+          scrollPositions[i] = initialTransforms[i];
         }
       });
   
       requestAnimationFrame(smoothScroll);
     }
-  
-    // Initialize scroll positions
-    columns.forEach((col, i) => {
-      scrollPositions[i] = 0;
-    });
   
     requestAnimationFrame(smoothScroll);
   </script>
