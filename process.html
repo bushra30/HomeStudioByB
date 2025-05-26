@@ -37,6 +37,7 @@
 
 </head>
 <body>
+<div class="transition-overlay"></div>
 
   <header class="navbar">
     <div class="logo">
@@ -74,6 +75,7 @@
     </ul>
   </header>
 
+  <main class="page-transition">
   <section class="oprocess-page">
     <h1>Our Process</h1>
     <p class="subtitle">This is our journey with you</p>
@@ -93,37 +95,35 @@
     </div>
 
     <!-- Step 2 -->
-   <!-- Step 2 -->
-<div class="step-card indented">
-    <div class="step-badge">02</div>
-    <div class="step-content">
-      <div class="text">
-        <h2>Conceptual Design and Planning</h2>
-        <p>We create floor plans and 3D renderings to visualize the design, refine it with your feedback, and finalize materials and plans for a seamless execution.</p>
-      </div>
-      <div class="image">
-        <img src="./images/process2.avif" alt="Conceptual Design" />
-      </div>
-    </div>
-  </div>
-  
-       <!-- Step 1 -->
-       <div class="step-card">
-        <div class="step-badge">03</div>
-        <div class="step-content">
-          <div class="text">
-            <h2>Implementation and Construction</h2>
-            <p>Our team oversees the construction and installation, ensuring everything adheres to the design plan and meets our high standards, handling any issues promptly.</p>
-          </div>
-          <div class="image">
-            <img src="./images/process3.avif" alt="Consultation" />
-          </div>
+    <div class="step-card indented">
+      <div class="step-badge">02</div>
+      <div class="step-content">
+        <div class="text">
+          <h2>Conceptual Design and Planning</h2>
+          <p>We create floor plans and 3D renderings to visualize the design, refine it with your feedback, and finalize materials and plans for a seamless execution.</p>
+        </div>
+        <div class="image">
+          <img src="./images/process2.avif" alt="Conceptual Design" />
         </div>
       </div>
-  
-      <!-- Step 2 -->
-     <!-- Step 2 -->
-  <div class="step-card indented">
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-card">
+      <div class="step-badge">03</div>
+      <div class="step-content">
+        <div class="text">
+          <h2>Implementation and Construction</h2>
+          <p>Our team oversees the construction and installation, ensuring everything adheres to the design plan and meets our high standards, handling any issues promptly.</p>
+        </div>
+        <div class="image">
+          <img src="./images/process3.avif" alt="Consultation" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step-card indented">
       <div class="step-badge">04</div>
       <div class="step-content">
         <div class="text">
@@ -135,6 +135,7 @@
         </div>
       </div>
     </div>
+
     <section class="contact-container">
       <div class="contact-info">
         <div class="info-box email-box">
@@ -195,36 +196,84 @@
           <button type="submit">Request Free Estimate</button>
         </form>
       </div>
-      </section>
-    <!-- footer -->
-    <footer class="site-footer">
-      <nav class="footer-nav">
-        <a href="./index.html">HOME</a>
-        <a href="./about.html">ABOUT</a>
-        <a href="./process.html">PROCESS</a>
-        <a href="./services1.html">SERVICES</a>
-        <a href="./gallery.html">PORTFOLIO</a>
-        <a href="./contact.html">CONTACT</a>
-      </nav>
-    
-      <div class="footer-logo">
-        <img src="./fologo.png" alt="Home Studio by B" />
-      </div>
-    
-      <div class="social-icons">
-        <a href="https://www.instagram.com/homestudiobyb?igsh=MWhmaG5pa3R3bHUybQ%3D%3D&utm_source=qr" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.facebook.com/profile.php?id=100093190297644&mibextid=LQQJ4d" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-      </div>
-      <!-- <hr /> -->
-    
-      <div class="footer-bottom">
-        <span>Copyright</span>
-        <span>2024. All Right Reserves</span>
-      </div>
-    </footer>
+    </section>
   </section>
 
+  <!-- footer -->
+  <footer class="site-footer">
+    <nav class="footer-nav">
+      <a href="./index.html">HOME</a>
+      <a href="./about.html">ABOUT</a>
+      <a href="./process.html">PROCESS</a>
+      <a href="./services1.html">SERVICES</a>
+      <a href="./gallery.html">PORTFOLIO</a>
+      <a href="./contact.html">CONTACT</a>
+    </nav>
+  
+    <div class="footer-logo">
+      <img src="./fologo.png" alt="Home Studio by B" />
+    </div>
+  
+    <div class="social-icons">
+      <a href="https://www.instagram.com/homestudiobyb?igsh=MWhmaG5pa3R3bHUybQ%3D%3D&utm_source=qr" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100093190297644&mibextid=LQQJ4d" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+    </div>
+    <!-- <hr /> -->
+  
+    <div class="footer-bottom">
+      <span>Copyright</span>
+      <span>2024. All Right Reserves</span>
+    </div>
+  </footer>
+  </main>
+
   <script src="./script.js"></script>
+  <script>
+    const transitionKey = 'doPageTransition';
+
+    // Only run animation if navigation was triggered
+    window.addEventListener('DOMContentLoaded', () => {
+      if (sessionStorage.getItem(transitionKey) === 'true') {
+        document.querySelector('.page-transition').classList.add('active');
+        sessionStorage.removeItem(transitionKey); // clear so it only runs once
+      } else {
+        document.querySelector('.page-transition').style.opacity = '1';
+        document.querySelector('.page-transition').style.transform = 'none';
+      }
+    });
+
+    // Attach click handler to all internal links
+    document.querySelectorAll('a').forEach(link => {
+      const href = link.getAttribute('href');
+
+      // Skip external, anchors, javascript, or blank links
+      const isInternal = href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('javascript');
+      if (!isInternal) return;
+
+      link.addEventListener('click', e => {
+        e.preventDefault();
+
+        // Prevent double-triggering
+        if (sessionStorage.getItem(transitionKey) === 'true') return;
+
+        const url = link.href;
+
+        // Set transition flag
+        sessionStorage.setItem(transitionKey, 'true');
+
+        // Start exit animation
+        const pageTransition = document.querySelector('.page-transition');
+        pageTransition.classList.remove('active');
+        pageTransition.style.opacity = '0';
+        pageTransition.style.transform = 'translateY(50px)';
+
+        // Navigate after animation
+        setTimeout(() => {
+          window.location.href = url;
+        }, 800); // match the transition duration
+      });
+    });
+  </script>
 
 </body>
 </html>
