@@ -157,26 +157,31 @@ padding: 0.8rem;
   color: black;
 }
 
+.project-card .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Title at top, paragraph at bottom */
+  height: 320px;                   /* Adjust based on content */
+}
+
+.project-card .text h3 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.project-card .text p {
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.6;
+}
+
 @media (min-width: 1600px) {
   .project-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 768px) {
-  .projects-page h1 {
-    font-size: 3rem;
-  }
-  
-  .project-grid {
-    grid-template-columns: 1fr;
-    padding: 0;
-  }
-  
-  .project-card img {
-    height: 400px;
-  }
-}
+
 
 .logo {
 font-size: 1.8rem;
@@ -1774,6 +1779,9 @@ to {opacity: 1; transform: translateY(0);}
   text-align: center;
   margin: 2rem 0 0;
 }
+.video-section {
+  margin: 1rem;
+}
 }
 .services-section {
 padding: 6rem 2rem;
@@ -1923,7 +1931,9 @@ line-height: 1.6;
 
 
 @media (max-width: 768px) {
-.projects-section { height: auto; }
+.projects-section {
+  padding-left: 1rem;
+}
 .project-wrapper { height: auto; }
 .project-card { position: static; }
 .project-card .content { flex-direction: column; text-align: center; }
@@ -2996,7 +3006,7 @@ color: rgb(253, 252, 238);
     /* padding-left: 1rem; */
     /* padding-right: 1rem; */
     box-sizing: border-box;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
   }
 
   /* Fix for specific elements that might cause overflow */
@@ -3016,4 +3026,43 @@ color: rgb(253, 252, 238);
     max-width: 100%;
     height: auto;
   }
+}
+
+@media (max-width: 480px) {
+  .services-section {
+    padding: 6rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-card .text h3 {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 768px) {
+ 
+  
+  .project-grid {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+  
+  .project-card img {
+    height: 400px;
+  }
+
+  .project-card .text {
+    height: auto;
+    /* font-size: 1.5rem; */
+  }
+   .projects-page h1 {
+    font-size: 3rem;
+  }
+  .project-card .text p {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+    text-align: start;
+    padding-left: 0;
+}
 }

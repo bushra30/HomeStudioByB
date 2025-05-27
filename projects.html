@@ -575,36 +575,4 @@
     
       // Attach click handler to all internal links
       document.querySelectorAll('a').forEach(link => {
-        const href = link.getAttribute('href');
-    
-        // Skip external, anchors, javascript, or blank links
-        const isInternal = href && !href.startsWith('http') && !href.startsWith('#') && !href.startsWith('javascript');
-        if (!isInternal) return;
-    
-        link.addEventListener('click', e => {
-          e.preventDefault();
-    
-          // Prevent double-triggering
-          if (sessionStorage.getItem(transitionKey) === 'true') return;
-    
-          const url = link.href;
-    
-          // Set transition flag
-          sessionStorage.setItem(transitionKey, 'true');
-    
-          // Start exit animation
-          document.body.classList.remove('page-enter');
-          document.body.style.opacity = '0';
-          document.body.style.transform = 'translateY(50px)';
-    
-          // Navigate after animation
-          setTimeout(() => {
-            window.location.href = url;
-          }, 800); // match the transition duration
-        });
-      });
-    </script>
-    
-    
-</body>
-</html>
+     

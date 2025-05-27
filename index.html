@@ -125,6 +125,26 @@
       font-size: 1.5rem;
     }
   }
+
+  @media (max-width: 768px) {
+    .megh-columns {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      padding: 1rem;
+    }
+
+    .megh-column {
+      display: contents;
+    }
+
+    .megh-overlay-banner {
+      position: sticky;
+      top: 50%;
+      transform: translate(-6%, 0%);
+      width: 90%;
+    }
+  }
 </style>
 
 <style>
@@ -290,7 +310,16 @@
       position: relative;
       z-index: 1000;
   }
-  
+  @media (max-width: 768px) {
+    .megh-overlay-banner {
+        position: sticky;
+        top: 50%;
+        transform: translate(-6%, 0%);
+        /* margin: 0 auto; */
+        width: 90%;
+        /* padding: 1.5rem; */
+    }
+  }
   </style>
 
 <script>
