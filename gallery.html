@@ -136,14 +136,21 @@
   
   /* Add these styles before the existing styles */
   .page-transition {
-      opacity: 0;
-      transform: translateY(20px);
+      opacity: 1;
+      transform: translateY(0);
       transition: opacity 0.6s ease, transform 0.6s ease;
   }
   
-  .page-transition.active {
+  .gallery-section {
+      position: relative;
+      z-index: 1;
       opacity: 1;
-      transform: translateY(0);
+  }
+  
+  .gallery-grid {
+      position: relative;
+      z-index: 1;
+      opacity: 1;
   }
   
   /* Add a loading overlay */
@@ -155,7 +162,7 @@
       height: 100%;
       background-color: black;
       z-index: 9999;
-      opacity: 0;
+      /* opacity: 0; */
       pointer-events: none;
       transition: opacity 0.3s ease;
   }
@@ -163,11 +170,6 @@
   .transition-overlay.active {
       opacity: 1;
       pointer-events: all;
-  }
-  
-  .projects-page {
-      position: relative;
-      z-index: 1;
   }
   
   /* Ensure the navbar stays above other content */
@@ -182,7 +184,6 @@
   
 </head>
 <body>
-<div class="transition-overlay"></div>
   <header class="navbar">
     <div class="logo">
       <a href="./index.html">
@@ -220,7 +221,7 @@
     </ul>
   </header>
 
-  <main class="page-transition">
+  <main class="page-transition active">
   <section class="gallery-section">
     <h2>Gallery</h2>
     <div class="gallery-grid">
