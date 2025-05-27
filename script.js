@@ -150,3 +150,94 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
   
+// Page Transition Handler
+class PageTransition {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    // Create transition overlay if it doesn't exist
+    if (!document.querySelector('.transition-overlay')) {
+      const overlay = document.createElement('div');
+      overlay.className = 'transition-overlay';
+      document.body.appendChild(overlay);
+    }
+
+    // Initialize page transition
+    const pageTransition = document.querySelector('.page-transition');
+    const transitionOverlay = document.querySelector('.transition-overlay');
+    
+    // Show page content with transition
+    setTimeout(() => {
+      if (pageTransition) {
+        pageTransition.classList.add('active');
+      }
+    }, 100);
+
+    // Handle all internal navigation links
+    document.querySelectorAll('a[href^="./"]').forEach(link => {
+      link.addEventListener('click', (e) => this.handleNavigation(e, link));
+    });
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', () => {
+      this.handlePageLoad();
+    });
+  }
+
+  handleNavigation(e, link) {
+    // Don't handle clicks on dropdown menu items or external links
+    if (link.closest('.dropdown-menu') || link.getAttribute('target') === '_blank') {
+      return;
+    }
+
+    e.preventDefault();
+    const href = link.getAttribute('href');
+    
+    // Activate transition overlay
+    const transitionOverlay = document.querySelector('.transition-overlay');
+    const pageTransition = document.querySelector('.page-transition');
+    
+    if (transitionOverlay && pageTransition) {
+      transitionOverlay.classList.add('active');
+      pageTransition.classList.remove('active');
+      
+      // Navigate to new page after transition
+      setTimeout(() => {
+        window.location.href = href;
+      }, 400);
+    } else {
+      window.location.href = href;
+    }
+  }
+
+  handlePageLoad() {
+    const pageTransition = document.querySelector('.page-transition');
+    const transitionOverlay = document.querySelector('.transition-overlay');
+    
+    if (pageTransition && transitionOverlay) {
+      // Reset overlay
+      transitionOverlay.classList.remove('active');
+      
+      // Show new page content
+      setTimeout(() => {
+        pageTransition.classList.add('active');
+      }, 100);
+    }
+  }
+}
+
+// Initialize page transitions when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  new PageTransition();
+});
+
+// Handle page load events
+window.addEventListener('load', () => {
+  const pageTransition = document.querySelector('.page-transition');
+  if (pageTransition) {
+    pageTransition.classList.add('active');
+  }
+});
+  

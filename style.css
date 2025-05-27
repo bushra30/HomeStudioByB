@@ -105,11 +105,20 @@ padding: 0.8rem;
 }
 
 .projects-page h1 {
-  font-size: 4rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 3rem;
+  font-family: "Inter", "Inter Placeholder", sans-serif;
+  font-size: 120px;
+  font-style: normal;
+  font-weight: 550;
+  letter-spacing: -0.09em;
+  line-height: 90%;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none;
+  margin-bottom: 40px;
+  color: rgb(253, 252, 238);
 }
+
+
 
 .project-grid {
   display: grid;
@@ -309,6 +318,14 @@ padding: 2rem;
 max-width: 1200px;
 margin: 3rem auto;
 gap: 2rem;
+}
+
+@media (max-width: 500px) {
+  .contact-container {
+    padding: 0rem;
+    margin: 0rem;
+  }
+
 }
 
 .contact-info, .contact-form {
@@ -641,10 +658,17 @@ object-fit: contain;
 }
 
 .projects-page h1 {
-  font-size: 4rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 3rem;
+  font-family: "Inter", "Inter Placeholder", sans-serif;
+  font-size: 120px;
+  font-style: normal;
+  font-weight: 550;
+  letter-spacing: -0.09em;
+  line-height: 90%;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none;
+  margin-bottom: 40px;
+  color: rgb(253, 252, 238);
 }
 
 .project-grid {
@@ -2061,11 +2085,11 @@ z-index: 1;
 position: relative;
 }
 
-.gallery-grid {
+/* .gallery-grid {
 column-count: 3;
 column-gap: 16px;
 padding: 32px;
-}
+} */
 
 .gallery-grid img {
 width: 100%;
@@ -2402,11 +2426,11 @@ text-transform: none;
 margin-bottom: 40px;
 color: rgb(253, 252, 238);
 }
-.gallery-grid {
+/* .gallery-grid {
 display: flex;
 justify-content: center;
 padding: 40px;
-}
+} */
 
 .gallery-item {
 position: relative;
@@ -2472,11 +2496,11 @@ font-size: 18px;
 font-weight: 400;
 color: white;
 }
-.gallery-grid {
+/* .gallery-grid {
 display: flex;
 justify-content: center;
 padding: 0px;
-}
+} */
 
 .gallery-wrapper {
 display: flex;
@@ -2860,4 +2884,15 @@ color: rgb(253, 252, 238);
     opacity: 1;
     pointer-events: all;
     visibility: visible;
+}
+@media (max-width: 500px) {
+  .projects-page h1 {
+    font-size: 66px;
+  }
+  .navbar{
+    padding: 1.2rem 0.5rem;
+  }
+  .gallery-section h2{
+    font-size: 66px;
+  }
 }
