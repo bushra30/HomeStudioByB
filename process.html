@@ -441,4 +441,13 @@
         pageTransition.style.opacity = '0';
         pageTransition.style.transform = 'translateY(50px)';
 
-        // Navigate 
+        // Navigate after animation
+        setTimeout(() => {
+          window.location.href = url;
+        }, 800); // match the transition duration
+      });
+    });
+  </script>
+
+</body>
+</html>
