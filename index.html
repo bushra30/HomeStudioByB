@@ -126,6 +126,19 @@
     }
   }
 
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .megh-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      padding: 1.5rem;
+    }
+
+    .megh-column {
+      display: contents;
+    }
+  }
+
   @media (max-width: 768px) {
     .megh-columns {
       display: grid;
