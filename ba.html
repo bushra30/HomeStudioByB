@@ -211,6 +211,7 @@ columns: rgb(253, 252, 238);
       position: relative;
       z-index: 1;
       opacity: 1;
+      padding: 40px 20px; /* Default padding for desktop */
   }
   
   .gallery-grid {
@@ -242,6 +243,13 @@ columns: rgb(253, 252, 238);
   .navbar {
       position: relative;
       z-index: 1000;
+  }
+  
+  /* Tablet and Mobile Responsive Styles */
+  @media (max-width: 768px) {
+    .gallery-section {
+      padding: 0; /* Remove padding for mobile and tablet */
+    }
   }
   
   </style>
@@ -339,7 +347,7 @@ columns: rgb(253, 252, 238);
     </div>
     
     <div class="contact-form">
-      <h2>Let’s Connect!</h2>
+      <h2>Let's Connect!</h2>
       <p>Whether you're looking to redesign your home, remodel your kitchen, or need expert advice on interiors, we're here to help. Reach out today, and let's bring your design dreams to life!</p>
       
       <form>
