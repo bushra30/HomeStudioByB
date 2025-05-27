@@ -120,6 +120,81 @@
   display: block;
 }
 
+/* Add responsive styles for cards */
+@media screen and (max-width: 1200px) {
+  .portfolio-cards {
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .card {
+    width: calc(50% - 15px); /* Two cards per row on tablets */
+    min-width: 350px;
+  }
+  
+  .image-wrapper {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio-cards {
+    padding: 10px;
+    gap: 20px;
+  }
+  
+  .card {
+    width: 100%; /* Single card per row on mobile */
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .image-wrapper {
+    height: 250px;
+  }
+  
+  .content h3 {
+    font-size: 16px;
+  }
+  
+  .overlay h3 {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .portfolio-cards {
+    padding: 10px;
+    gap: 15px;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .image-wrapper {
+    height: 200px;
+  }
+  
+  .content {
+    padding: 12px;
+  }
+  
+  .content h3 {
+    font-size: 15px;
+  }
+  
+  .overlay h3 {
+    font-size: 20px;
+  }
+  
+  .tag {
+    font-size: 10px;
+    padding: 3px 6px;
+  }
+}
+
 </style>
 
 <style>
