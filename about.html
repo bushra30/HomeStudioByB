@@ -41,7 +41,7 @@
       transform: translateY(10px);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       padding: 52px;
-      min-width: 320px;
+      min-width: 350px;
       position: absolute;
       top: 100%;
       /* left: 50%; */
@@ -82,7 +82,7 @@
   .dropdown-menu li a {
       color: #333;
       font-weight: 500;
-      padding: 16px 24px;
+      padding: 16px 24px 16px 32px;
       display: block;
       text-decoration: none;
       position: relative;
@@ -93,6 +93,7 @@
       z-index: 1003;
   }
   
+ 
   .dropdown-menu li:nth-child(1),
   .dropdown-menu li:nth-child(2),
   .dropdown-menu li:nth-child(3) {
@@ -108,21 +109,20 @@
       background-color: rgba(255, 255, 255, 0.15);
   }
   
-  .dropdown-menu li a::before {
-      content: "-";
-      position: absolute;
-      left: 8px;
-      opacity: 0;
-      transition: all 0.3s ease;
-  }
+ 
   
   .dropdown-menu li:hover a {
-      padding-left: 24px;
+      padding-left: 32px;
+      background-color: rgba(255, 255, 255, 0.15);
   }
   
   .dropdown-menu li:hover a::before {
-      opacity: 1;
-      left: 12px;
+      content: "";
+      width: 20px;
+      height: 2px;
+      left: 8px;
+      border-radius: 0;
+      font-size: 0;
   }
   
   /* Update dropdown trigger style */
@@ -146,14 +146,21 @@
   
   /* Add these styles before the existing styles */
   .page-transition {
-      opacity: 0;
-      transform: translateY(20px);
+      opacity: 1;
+      transform: translateY(0);
       transition: opacity 0.6s ease, transform 0.6s ease;
   }
   
-  .page-transition.active {
+  .gallery-section {
+      position: relative;
+      z-index: 1;
       opacity: 1;
-      transform: translateY(0);
+  }
+  
+  .gallery-grid {
+      position: relative;
+      z-index: 1;
+      opacity: 1;
   }
   
   /* Add a loading overlay */
@@ -165,7 +172,7 @@
       height: 100%;
       background-color: black;
       z-index: 9999;
-      opacity: 0;
+      /* opacity: 0; */
       pointer-events: none;
       transition: opacity 0.3s ease;
   }
@@ -173,11 +180,6 @@
   .transition-overlay.active {
       opacity: 1;
       pointer-events: all;
-  }
-  
-  .projects-page {
-      position: relative;
-      z-index: 1;
   }
   
   /* Ensure the navbar stays above other content */
