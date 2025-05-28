@@ -335,22 +335,10 @@
   }
   </style>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const questions = document.querySelectorAll('.faq-question');
 
-    questions.forEach((btn) => {
-      btn.addEventListener('click', function () {
-        const faqItem = this.parentElement;
-        faqItem.classList.toggle('active');
-      });
-    });
-  });
-</script>
 
 
 <body>
-<div class="transition-overlay"></div>
   <header class="navbar">
     <div class="logo">
       <a href="./index.html">
@@ -405,7 +393,7 @@
       </section>
       
 
-  <section class="video-section" style="margin-bottom: -8rem;">
+  <section class="video-section" style=" box-shadow: 0px -59px 70px -10px rgb(33, 31, 30);">
     <video autoplay muted loop>
       <source src="https://framerusercontent.com/assets/I354erNhQLcb0ekcVkqhoV44.mp4" type="video/mp4">
       Your browser does not support the video tag.
@@ -445,12 +433,14 @@
   <div class="project-wrapper">
 
   <div class="project-card" style="background: #f3f0e9;">
-    <div class="tags">
-      <span>Residential</span>
-      <span>Single Home</span>
-    </div>
-    <div class="content">
-      <img src="https://framerusercontent.com/images/Vi74x5TH5z9Kryy1HN122UBVQ.jpg?scale-down-to=1024" alt="Modern Farmhouse" />
+    <div class="project-card-content">
+      <div class="tags">
+        <span>Residential</span>
+        <span>Single Home</span>
+      </div>
+      <div class="project-image">
+        <img src="https://framerusercontent.com/images/Vi74x5TH5z9Kryy1HN122UBVQ.jpg?scale-down-to=1024" alt="Modern Farmhouse" />
+      </div>
       <div class="text">
         <h3>Modern Farmhouse Haven</h3>
         <p>The Modern Farmhouse project embodies a luxurious twist on farmhouse style, combining rustic warmth with clean, contemporary details for a timeless yet fresh look.</p>
@@ -458,26 +448,30 @@
     </div>
   </div>
 
-  <div class="project-card " style="background: #f3f0e9;">
-    <div class="tags">
-      <span>Residential</span>
-      <span>Single Home</span>
-    </div>
-    <div class="content">
-      <img src="https://framerusercontent.com/images/JALUrKpoLAAMdsMakATQXuDF2g.jpg?scale-down-to=1024" alt="Modern Luxe" />
+  <div class="project-card" style="background: #f3f0e9;">
+    <div class="project-card-content">
+      <div class="tags">
+        <span>Residential</span>
+        <span>Single Home</span>
+      </div>
+      <div class="project-image">
+        <img src="https://framerusercontent.com/images/JALUrKpoLAAMdsMakATQXuDF2g.jpg?scale-down-to=1024" alt="Modern Luxe" />
+      </div>
       <div class="text">
         <h3>Modern Luxe Residence</h3>
         <p>The Modern Luxe Residence combines sleek accents, rich textures, and a contemporary palette to create a refined, sophisticated style that enhances every space with effortless elegance.</p>
       </div>
     </div>
   </div>
-  <div class="project-card " style="background: #f3f0e9;">
-    <div class="tags">
-      <span>Residential</span>
-      <span>Single Home</span>
-    </div>
-    <div class="content">
-      <img src="https://framerusercontent.com/images/4nEtEiyfUysxNvnJfy9lw1DKk.jpg?scale-down-to=1024" alt="Modern Luxe" />
+  <div class="project-card" style="background: #f3f0e9;">
+    <div class="project-card-content">
+      <div class="tags">
+        <span>Residential</span>
+        <span>Single Home</span>
+      </div>
+      <div class="project-image">
+        <img src="https://framerusercontent.com/images/4nEtEiyfUysxNvnJfy9lw1DKk.jpg?scale-down-to=1024" alt="Modern Luxe" />
+      </div>
       <div class="text">
         <h3>Fluted Kitchen Oasis</h3>
         <p>A refined and contemporary kitchen that harmoniously combines timeless elegance with modern design, featuring a striking fluted accent wall, brass accents, and sophisticated lighting.</p>
