@@ -510,7 +510,10 @@ font-weight: 500;
 color: color-mix(in srgb, rgb(255, 255, 255) 50%, rgb(253, 252, 238) 50%);
 
 }
+.info-box.hours{
+  padding-bottom: 14.2rem;
 
+}
 .hours ul {
 list-style: none;
 padding: 0;
