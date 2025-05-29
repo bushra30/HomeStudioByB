@@ -507,7 +507,8 @@ font-size: 14px;
 display: block;
 margin-top: 0.5rem;
 font-weight: 500;
-color: color-mix(in srgb, rgb(255, 255, 255) 50%, rgb(253, 252, 238) 50%);
+/* color: color-mix(in srgb, rgb(255, 255, 255) 50%, rgb(253, 252, 238) 50%); */
+
 
 }
 .info-box.hours{
