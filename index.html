@@ -316,6 +316,63 @@
         /* padding: 1.5rem; */
     }
   }
+  .megh-gallery-wrapper {
+  height: 70vh;
+  overflow: hidden; /* Changed from auto to hidden */
+  position: relative;
+  margin: 4rem auto 0;
+  max-width: 1200px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.megh-columns {
+  display: flex;
+  gap: 0.5rem;
+  position: relative;
+  padding: 2rem;
+  height: 100%;
+}
+
+.megh-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  will-change: transform;
+  transition: transform 0.3s ease-out;
+}
+
+.megh-column img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.megh-column img:hover {
+  transform: scale(1.02);
+}
+
+.megh-overlay-banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  padding: 2rem 3rem;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  width: fit-content;
+  max-width: 80%;
+  pointer-events: none;
+  margin: 0 auto;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+}
   </style>
 
 
@@ -646,58 +703,93 @@
       document.getElementById('megh-col3'),
       document.getElementById('megh-col4')
     ];
-  
-    // Add more images to ensure continuous scrolling
-    const extendedImages = [...images, ...images, ...images];
-  
-    // Get initial transform values
-    const initialTransforms = columns.map(col => {
-      const transform = col.style.transform;
-      const match = transform.match(/translateY\(([-\d.]+)px\)/);
-      return match ? parseFloat(match[1]) : 0;
-    });
-    
-    extendedImages.forEach((src, idx) => {
-      const img = document.createElement('img');
-      img.src = src;
-      columns[idx % 4].appendChild(img);
-    });
-  
-    const gallery = document.getElementById('megh-gallery');
-    
-    // Define scroll speeds and directions for each column
-    const scrollConfig = [
-      { speed: 0.5, direction: 1 },    // Column 1: slower, downward
-      { speed: 0.8, direction: -1 },   // Column 2: faster, upward
-      { speed: 0.6, direction: 1 },    // Column 3: medium, downward
-      { speed: 0.9, direction: -1 }    // Column 4: fastest, upward
-    ];
-  
-    let lastScrollTop = 0;
-    let scrollPositions = initialTransforms; // Initialize with the initial transform values
-  
-    function smoothScroll() {
-      const scrollTop = gallery.scrollTop;
-      const scrollDelta = scrollTop - lastScrollTop;
-      lastScrollTop = scrollTop;
-  
-      columns.forEach((col, i) => {
-        // Update scroll position for each column
-        scrollPositions[i] += scrollDelta * scrollConfig[i].speed * scrollConfig[i].direction;
-        
-        // Apply the transform
-        col.style.transform = `translateY(${scrollPositions[i]}px)`;
-  
-        // Reset position when column goes too far
-        if (Math.abs(scrollPositions[i] - initialTransforms[i]) > col.offsetHeight) {
-          scrollPositions[i] = initialTransforms[i];
-        }
-      });
-  
-      requestAnimationFrame(smoothScroll);
+
+    // Function to create a seamless loop of images
+    function createSeamlessColumn(columnImages) {
+      // Create three sets of images to ensure seamless looping
+      const tripledImages = [...columnImages, ...columnImages, ...columnImages];
+      return tripledImages;
     }
-  
-    requestAnimationFrame(smoothScroll);
+
+    // Initialize columns with images and set initial positions
+    columns.forEach((col, colIndex) => {
+      // Get 4 images for this column
+      const columnImages = images.slice(colIndex * 4, (colIndex + 1) * 4);
+      // Create seamless loop
+      const seamlessImages = createSeamlessColumn(columnImages);
+      
+      seamlessImages.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        col.appendChild(img);
+      });
+
+      // Set initial position based on scroll direction
+      const isDownwardScroll = colIndex % 2 === 0; // true for columns 1 and 3
+      if (isDownwardScroll) {
+        // For downward scrolling columns, start from the middle set
+        const singleSetHeight = col.offsetHeight / 3;
+        col.style.transform = `translateY(-${singleSetHeight}px)`;
+      }
+    });
+
+    const gallery = document.getElementById('megh-gallery');
+    let isHovering = false;
+    let scrollInterval;
+    let scrollPositions = columns.map((col, i) => {
+      // Initialize positions based on scroll direction
+      const isDownwardScroll = i % 2 === 0;
+      return isDownwardScroll ? -col.offsetHeight / 3 : 0;
+    });
+    const scrollSpeed = 0.5;
+
+    // Add hover event listeners
+    gallery.addEventListener('mouseenter', () => {
+      isHovering = true;
+      startAutoScroll();
+    });
+
+    gallery.addEventListener('mouseleave', () => {
+      isHovering = false;
+      stopAutoScroll();
+    });
+
+    function startAutoScroll() {
+      if (scrollInterval) return;
+      
+      scrollInterval = setInterval(() => {
+        if (!isHovering) return;
+
+        columns.forEach((col, i) => {
+          const isDownwardScroll = i % 2 === 0;
+          const direction = isDownwardScroll ? 1 : -1;
+          scrollPositions[i] += scrollSpeed * direction;
+          
+          // Get the height of one set of images
+          const singleSetHeight = col.offsetHeight / 3;
+          
+          // Reset position when we've scrolled through one set of images
+          if (isDownwardScroll) {
+            if (scrollPositions[i] >= 0) {
+              scrollPositions[i] = -singleSetHeight;
+            }
+          } else {
+            if (scrollPositions[i] <= -singleSetHeight) {
+              scrollPositions[i] = 0;
+            }
+          }
+          
+          col.style.transform = `translateY(${scrollPositions[i]}px)`;
+        });
+      }, 30);
+    }
+
+    function stopAutoScroll() {
+      if (scrollInterval) {
+        clearInterval(scrollInterval);
+        scrollInterval = null;
+      }
+    }
   </script>
 </body>
 </html>

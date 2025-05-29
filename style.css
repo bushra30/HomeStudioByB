@@ -2009,7 +2009,7 @@ position: relative;
 max-width: 1200px;
 margin: auto;
 height: 300vh; /* Increased height for better scroll effect */
-padding: 4rem;
+padding: 4rem 4rem 0 4rem; /* Reduced bottom padding from 4rem to 0 */
 }
 
 .project-card {
@@ -3040,8 +3040,7 @@ border-radius: 4px;
 display: flex;
 justify-content: center;
 align-items: center;
-/* padding-top: 6rem; */
-
+/* margin-top: 2rem; Added small margin instead of padding */
 }
 
 .aboutimgs{
@@ -3271,3 +3270,4 @@ color: rgb(253, 252, 238);
 .project-card-link:hover .project-card {
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 } */
+
