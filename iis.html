@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home Studio by B</title>
+  <link rel="icon" type="image/png" href="./fologo.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="./style.css">
+ 
+</head>
+<style>
+  
+  
+
+  .megh-gallery-wrapper {
+    /* height: 100vh; */
+    height: 70vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    position: relative;
+    margin: 4rem auto 0;
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  .megh-columns {
+    display: flex;
+    gap: 0.5rem;
+    position: relative;
+    padding: 2rem;
+    height: 100%;
+  }
+
+  .megh-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    will-change: transform;
+  }
+
+  .megh-column img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+  }
+
+  .megh-column img:hover {
+    /* transform: scale(1.05); */
+  }
+
+  .megh-overlay-banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    padding: 2rem 3rem;
+    border-radius: 14px;
+    text-align: center;
+    width: fit-content;
+    max-width: 80%;
+    pointer-events: none;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .megh-overlay-banner h2 {
+    font-family: "Inter", "Inter Placeholder", sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 1.1em;
+    text-align: center;
+    color: rgb(253, 252, 238);
+    margin-bottom: 40px;
+    text-decoration: none;
+    text-transform: none;
+    text-shadow: none;
+  }
+
+  .megh-overlay-banner button {
+    pointer-events: auto;
+    padding: 1.2rem 2.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    color: rgb(253, 252, 238);
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .megh-overlay-banner button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: -1;
+  }
+
+  .megh-overlay-banner button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .megh-overlay-banner button:active {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 1024px) {
+    .megh-columns {
+      flex-direction: column;
+    }
+
+    .megh-overlay-banner {
+      position: sticky;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0 auto;
+      width: 90%;
+      padding: 1.5rem;
+    }
+
+    .megh-overlay-banner h2 {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .megh-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      padding: 1.5rem;
+    }
+
+    .megh-column {
+      display: contents;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .megh-columns {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      padding: 1rem;
+    }
+
+    .megh-column {
+      display: contents;
+    }
+
+    .megh-overlay-banner {
+      position: sticky;
+      top: 50%;
+      transform: translate(-6%, 0%);
+      width: 90%;
+    }
+  }
+</style>
+
+<style>
+  .dropdown {
+      position: relative;
+      z-index: 1000;
+  }
+  
+  .dropdown-menu {
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.1);
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 52px;
+      min-width: 350px;
+      position: absolute;
+      top: 100%;
+      /* left: 50%; */
+      transform: translateX(-50%) translateY(10px);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      z-index: 1001;
+      pointer-events: none;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0px);
+      pointer-events: auto;
+      z-index: 1002;
+  }
+  
+  /* Remove the hover bridges as they might interfere */
+  .dropdown::after,
+  .dropdown-menu::before {
+      display: none;
+  }
+  
+  .dropdown-menu li {
+      margin: 0;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      width: 100%;
+      display: block;
+      flex: 1;
+      padding: 0.2rem;
+      position: relative;
+      z-index: 1002;
+  }
+  
+  .dropdown-menu li a {
+      color: #333;
+      font-weight: 500;
+      padding: 16px 24px 16px 32px;
+      display: block;
+      text-decoration: none;
+      position: relative;
+      transition: all 0.3s ease;
+      width: 100%;
+      box-sizing: border-box;
+      height: 100%;
+      z-index: 1003;
+  }
+  
+ 
+  .dropdown-menu li:nth-child(1),
+  .dropdown-menu li:nth-child(2),
+  .dropdown-menu li:nth-child(3) {
+      width: 100%;
+      display: block;
+      flex: 1;
+  }
+  
+  
+  
+  .dropdown-menu li:hover {
+      transform: translateX(8px);
+      background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+ 
+  
+  .dropdown-menu li:hover a {
+      padding-left: 32px;
+      background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .dropdown-menu li:hover a::before {
+      content: "";
+      width: 20px;
+      height: 2px;
+      left: 8px;
+      border-radius: 0;
+      font-size: 0;
+  }
+  
+  /* Update dropdown trigger style */
+  .dropdown > a {
+      position: relative;
+      padding-right: 20px;
+  }
+  
+  .dropdown > a::after {
+      content: "▾";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.3s ease;
+  }
+  
+  .dropdown:hover > a::after {
+      transform: translateY(-50%) rotate(180deg);
+  }
+  
+  /* Add these styles before the existing styles */
+  .page-transition {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .gallery-section {
+      position: relative;
+      z-index: 1;
+      opacity: 1;
+  }
+  
+  .gallery-grid {
+      position: relative;
+      z-index: 1;
+      opacity: 1;
+  }
+  
+  /* Add a loading overlay */
+  
+  /* Ensure the navbar stays above other content */
+  .navbar {
+      position: relative;
+      z-index: 1000;
+  }
+  @media (max-width: 768px) {
+    .megh-overlay-banner {
+        position: sticky;
+        top: 50%;
+        transform: translate(-6%, 0%);
+        /* margin: 0 auto; */
+        width: 90%;
+        /* padding: 1.5rem; */
+    }
+  }
+  .megh-gallery-wrapper {
+  height: 70vh;
+  overflow: hidden; /* Changed from auto to hidden */
+  position: relative;
+  margin: 4rem auto 0;
+  max-width: 1200px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.megh-columns {
+  display: flex;
+  gap: 0.5rem;
+  position: relative;
+  padding: 2rem;
+  height: 100%;
+}
+
+.megh-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  will-change: transform;
+  transition: transform 0.3s ease-out;
+}
+
+.megh-column img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.megh-column img:hover {
+  transform: scale(1.02);
+}
+
+.megh-overlay-banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  padding: 2rem 3rem;
+  border-radius: 14px;
+  text-align: center;
+  /* box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); */
+  width: fit-content;
+  max-width: 80%;
+  pointer-events: none;
+  margin: 0 auto;
+  display: block;
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  /* backdrop-filter: blur(10px); */
+}
+  </style>
+
+
+
+
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <a href="./index.html">
+        <img src="./fologo.png" alt="Logo">
+      </a>
+    </div>
+    
+  
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  
+    <ul class="nav-links" id="navMenu">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./process.html">Process</a></li>
+  
+      <!-- Services dropdown -->
+      <li class="dropdown">
+        <!-- <a href="./services1.html">Services ▾</a> -->
+        <a href="./index.html#home-services">Services</a>
+
+        <ul class="dropdown-menu">
+          <li><a href="./services1.html">Design Consultation</a></li>
+          <li><a href="./services2.html">Design and Build</a></li>
+          <li><a href="./services3.html">Interior Decoration and Room Refresh</a></li>
+        </ul>
+      </li>
+      <li><a href="./ba.html">Before & After</a></li>
+
+      <li><a href="./projects.html">Portfolio</a></li>
+      <li><a href="./gallery.html">Gallery</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+    </ul>
+  </header>
+
+     
+      <section class="hero">
+        <div class="logo-container">
+          <img src="./images/ah.png" alt="Home Studio by B" />
+        </div>
+        <div class="cta-box">
+          <p>Ready to transform your space.</p>
+          <a href="./contact.html" class="cta-button" style="text-decoration: none;">
+            Book a Call <span class="arrow">→</span>
+          </a>
+          
+          
+        </div>
+      </section>
+      
+
+  <section class="video-section" style=" box-shadow: 0px -59px 70px -10px rgb(33, 31, 30);">
+    <video autoplay muted loop>
+      <source src="https://framerusercontent.com/assets/I354erNhQLcb0ekcVkqhoV44.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+  <section class="services-section" id="home-services">
+    <h2>Services</h2>
+    <div class="services-grid">
+  
+      <a href="./services1.html" class="service-card-link" style="text-decoration: none;">
+        <div class="service-card">
+          <img src="https://framerusercontent.com/images/VizVEStqWbudOs3MtkvK9tetBgs.png" alt="Design Consultation" />
+          <h3>Design Consultation</h3>
+          <p>Have a vision for your space but need guidance and reliable support to bring it to life? We offer expert design and smooth contractor coordination to turn your ideas into a stunning, functional reality.</p>
+        </div>
+      </a>
+      <a href="./services2.html" class="service-card-link" style="text-decoration: none;">
+
+      <div class="service-card">
+        <img src="https://framerusercontent.com/images/8sFYLQiKhdORYqPTRaKI34rog.png" alt="Design and Build" />
+        <h3>Design and Build</h3>
+        <p>Ready to transform your space but want an expert to handle every detail? We've got you covered from the initial design concept through to the final reveal.</p>
+      </div>
+  </a>
+  <a href="./services3.html" class="service-card-link" style="text-decoration: none;">
+
+      <div class="service-card">
+        <img src="https://framerusercontent.com/images/YTrt9itCz9Fx5JwSALzwayKOVBI.png" alt="Interior Decoration" />
+        <h3>Interior Decoration and Room Refresh</h3>
+        <p>Looking to refresh a room without a major overhaul? Let us transform your space with minimal effort and maximum impact.</p>
+      </div>
+  </a>
+    </div>
+  </section>
+  <section class="projects-section">
+  <h2>Projects</h2>
+  <div class="project-wrapper">
+    <a href="./project1.html" class="project-card-link" style="text-decoration: none;">
+      <div class="project-card fade-up-on-scroll" style="background: #f3f0e9;">
+        <div class="project-card-content">
+          <div class="tags">
+            <span>Residential</span>
+            <span>Single Home</span>
+          </div>
+          <div class="project-image">
+            <img src="https://framerusercontent.com/images/Vi74x5TH5z9Kryy1HN122UBVQ.jpg?scale-down-to=1024" alt="Modern Farmhouse" />
+          </div>
+          <div class="text">
+            <h3>Modern Farmhouse Haven</h3>
+            <p>The Modern Farmhouse project embodies a luxurious twist on farmhouse style, combining rustic warmth with clean, contemporary details for a timeless yet fresh look.</p>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a href="./project2.html" class="project-card-link" style="text-decoration: none;">
+
+  <div class="project-card" style="background: #f3f0e9;">
+    <div class="project-card-content">
+      <div class="tags">
+        <span>Residential</span>
+        <span>Single Home</span>
+      </div>
+      <div class="project-image">
+        <img src="https://framerusercontent.com/images/JALUrKpoLAAMdsMakATQXuDF2g.jpg?scale-down-to=1024" alt="Modern Luxe" />
+      </div>
+      <div class="text">
+        <h3>Modern Luxe Residence</h3>
+        <p>The Modern Luxe Residence combines sleek accents, rich textures, and a contemporary palette to create a refined, sophisticated style that enhances every space with effortless elegance.</p>
+      </div>
+    </div>
+  </div>
+  </a>
+  <a href="./project3.html" class="project-card-link" style="text-decoration: none;">
+
+  <div class="project-card" style="background: #f3f0e9;">
+    <div class="project-card-content">
+      <div class="tags">
+        <span>Residential</span>
+        <span>Single Home</span>
+      </div>
+      <div class="project-image">
+        <img src="https://framerusercontent.com/images/4nEtEiyfUysxNvnJfy9lw1DKk.jpg?scale-down-to=1024" alt="Modern Luxe" />
+      </div>
+      <div class="text">
+        <h3>Fluted Kitchen Oasis</h3>
+        <p>A refined and contemporary kitchen that harmoniously combines timeless elegance with modern design, featuring a striking fluted accent wall, brass accents, and sophisticated lighting.</p>
+      </div>
+    </div>
+  </div>
+  </a>
+  </div>
+
+</section>
+<div  class="home-projectbutton">
+  <a href="./projects.html" class="cta-button" style="text-decoration: none;">
+   All Projects <span class="arrow">→</span>
+  </a>
+</div>
+<!-- home gallery -->
+
+<!-- grid gallery -->
+<div class="megh-gallery-wrapper" id="megh-gallery">
+  <div class="megh-overlay-banner">
+    <h2>Get inspired by our works</h2>
+    <button onclick="window.open('https://www.instagram.com/homestudiobyb/?igsh=MWhmaG5pa3R3bHUybQ%3D%3D&utm_source=qr', '_blank')">Follow Us On Instagram</button>
+  </div>
+  <div class="megh-columns">
+    <div class="megh-column" id="megh-col1" style="transform: translateY(-294.5px);"></div>
+    <div class="megh-column" id="megh-col2" style="transform: translateY(-394.4px);"></div>
+    <div class="megh-column" id="megh-col3" style="transform: translateY(-294.8px);"></div>
+    <div class="megh-column" id="megh-col4" style="transform: translateY(-328px);"></div>
+  </div>
+</div>
+
+<section class="faq-section">
+  <div class="faq-left">
+    <h2>Your questions,our answers</h2>
+  </div>
+  <div class="faq-right">
+    <div class="faq-item">
+      <button class="faq-question">What services do you offer?<span class="facta">  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <!-- <span class="facta"></span> -->
+        <span class="facta" aria-hidden="true">
+          <svg class="icon-plus" width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="16" y1="8" x2="16" y2="32" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <line x1="8" y1="20" x2="24" y2="20" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </span>
+        
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+
+        We offer a wide range of services, including kitchen, bathroom, and bedroom renovations and remodeling, space planning, 3D renderings, material selection, color consultations, lighting design, and full project management from concept to completion.
+      </div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">How do I start a project with HomeStudiobyB?<span class="facta">+</span></button>
+      <div class="faq-answer">Starting a project with us is simple. Begin by scheduling an initial consultation where we discuss your vision, requirements, and budget. From there, we proceed with space measurements and develop a detailed design plan.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">What is the typical timeline for a project?<span class="facta">+</span></button>
+      <div class="faq-answer">The timeline of the project depends on project size and scope.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Can you work within my budget?<span class="facta">+</span></button>
+      <div class="faq-answer">Yes, we work with a variety of budgets and strive to create beautiful and functional spaces within your financial constraints. We discuss your budget during the initial meeting and tailor our design solutions accordingly.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Do you handle the purchasing of materials?<span class="facta">+</span></button>
+      <div class="faq-answer">Yes, we manage the procurement of all materials, and finishes required for your project. We work with trusted suppliers and vendors to ensure quality and timely delivery.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">Will I be able to see the design before it is implemented?<span class="facta">+</span></button>
+      <div class="faq-answer">Absolutely! We provide detailed floor plans and 3D renderings of the proposed design. This allows you to visualize the space and make any necessary adjustments before we proceed with implementation.</div>
+    </div>
+    
+  </div>
+  
+</section>
+
+
+<!-- footer -->
+<section class="contact-container">
+  <div class="contact-info">
+    <div class="info-box email-box">
+      <strong>EMAIL</strong>
+      <span>homestudiobyb@gmail.com</span>
+    </div>
+    <div class="info-box phone-box">
+      <strong>PHONE</strong>
+      <span>+1 (310) 880-0672</span>
+    </div>
+    <div class="info-box hours">
+      <strong>OPENING HOURS</strong>
+      <ul>
+        <li><span style="color: rgb(167, 167, 165)  /* A very light ivory shade */
+"><i class="fa-regular fa-clock clock-icon"></i>Monday</span><span>9.00 AM – 6.00 PM</span></li>
+        <li><span style="color: rgb(167, 167, 165)   /* A very light ivory shade */
+"><i class="fa-regular fa-clock clock-icon"></i>Tuesday</span><span>9.00 AM – 6.00 PM</span></li>
+        <li><span style="color: rgb(167, 167, 165)   /* A very light ivory shade */
+"><i class="fa-regular fa-clock clock-icon"></i>Wednesday</span><span>9.00 AM – 6.00 PM</span></li>
+        <li><span style="color: rgb(167, 167, 165)   /* A very light ivory shade */
+"><i class="fa-regular fa-clock clock-icon"></i>Thursday</span><span>9.00 AM – 6.00 PM</span></li>
+        <li><span style="color: rgb(167, 167, 165)   /* A very light ivory shade */
+"><i class="fa-regular fa-clock clock-icon"></i>Friday</span><span>9.00 AM – 6.00 PM</span></li>
+        <li><span style="color: rgb(167, 167, 165)   /* A very light ivory shade */
+"><i class="fa-regular fa-clock clock-icon"></i>Saturday</span><span>9.00 AM – 6.00 PM</span></li>
+        <li><span style="color: rgb(167, 167, 165)   /* A very light ivory shade */
+"><i class="fa-regular fa-clock clock-icon"></i>Sunday</span><span>Closed</span></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="contact-form">
+    <h2>Let's Connect!</h2>
+    <p>Whether you're looking to redesign your home, remodel your kitchen, or need expert advice on interiors, we're here to help. Reach out today, and let's bring your design dreams to life!</p>
+    
+    <form>
+      <div class="row">
+        <div>
+          <label class="footer-label">Name</label>
+          <input type="text" placeholder="Enter Your Full Name" required>
+        </div>
+        <div>
+          <label class="footer-label">Phone</label>
+          <input type="tel" placeholder="Enter Your Phone Number" required>
+        </div>
+      </div>
+      <label class="footer-label">Email</label>
+      <input type="email" placeholder="Enter Your Email" required>
+      <label class="footer-label">Project type</label>
+
+      <select required>
+        <option disabled selected>Select Your Project Type</option>
+        <option>Full Home Remodel</option>
+        <option>Kitchen/Bathroom Renovation</option>
+        <option>Interior Decoration</option>
+        <option>Design Consultation</option>
+        <option>Other</option>
+      </select>
+      <label class="footer-label">Project Location</label>
+
+      <input type="text" placeholder="Project Location" required>
+      <label class="footer-label">Message</label>
+
+      <textarea rows="4" placeholder="Tell me more about your project"></textarea>
+      <button type="submit">Request Free Estimate</button>
+    </form>
+  </div>
+  </section>
+  <!-- footer -->
+  <footer class="site-footer">
+    <nav class="footer-nav">
+      <a href="./index.html">HOME</a>
+      <a href="./about.html">ABOUT</a>
+      <a href="./process.html">PROCESS</a>
+      <a href="./services1.html">SERVICES</a>
+      <a href="./gallery.html">PORTFOLIO</a>
+      <a href="./contact.html">CONTACT</a>
+    </nav>
+  
+  <div class="footer-logo">
+          <img src="./fologo.png" alt="Home Studio by B" />
+
+  </div>
+  
+  <div class="social-icons">
+    <a href="https://www.instagram.com/homestudiobyb?igsh=MWhmaG5pa3R3bHUybQ%3D%3D&utm_source=qr" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://www.facebook.com/profile.php?id=100093190297644&mibextid=LQQJ4d" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+  </div>
+  
+  <!-- <hr /> -->
+  
+  <div class="footer-bottom">
+    <span>Copyright</span>
+    <span>2024. All Right Reserves</span>
+  </div>
+  </footer>
+  <script src="./script.js"></script>
+
+
+
+  
+  
+  <script>
+    const images = [
+      "https://framerusercontent.com/images/9d29GdiFfnmHGXZwU5X87Hr22Y.jpg?scale-down-to=2048",
+      "https://framerusercontent.com/images/VXo2STRdoK1sqNlmfepj1CQlPQ.jpg",
+      "https://framerusercontent.com/images/W6KrjFQb3OiSG2mN7jueyAGEN2E.png",
+      "https://framerusercontent.com/images/jo6FkUTTX1EOTBXF944goLutlo.jpg",
+      "https://framerusercontent.com/images/NR5JsVFREF7SrONe9rFAgyGGY.png",
+      "https://framerusercontent.com/images/3iQK5MwGJtt2v60Vzt1htmqE8a0.png",
+      "https://framerusercontent.com/images/VzfnM7HxKDN23NvMV1td0VUWlI0.jpg",
+      "https://framerusercontent.com/images/fl3quwpNr9fu6meA73URhFRJyM.png",
+      "https://framerusercontent.com/images/Hx5uBCa8lwqvIFYoOoNp78G1lw.png",
+      "https://framerusercontent.com/images/pwaDW8LqSZZCQXxoYahTumnCTM.jpg",
+      "https://framerusercontent.com/images/z6V0vQVfNisicUvOR5PsMVMyqi4.jpg",
+      "https://framerusercontent.com/images/A14TKUhwsiU5R5T2bjCgKgkXUY.png",
+      "https://framerusercontent.com/images/Zq53NkaQPUWuno5wg8XifTjnOA.jpg",
+      "https://framerusercontent.com/images/Hx5uBCa8lwqvIFYoOoNp78G1lw.png",
+      "https://framerusercontent.com/images/sPDsRUjc0hIy9pFfEYcXo04Ak.png"
+    ];
+  
+    const columns = [
+      document.getElementById('megh-col1'),
+      document.getElementById('megh-col2'),
+      document.getElementById('megh-col3'),
+      document.getElementById('megh-col4')
+    ];
+
+    // Function to create a seamless loop of images
+    function createSeamlessColumn(columnImages) {
+      // Create three sets of images to ensure seamless looping
+      const tripledImages = [...columnImages, ...columnImages, ...columnImages];
+      return tripledImages;
+    }
+
+    // Initialize columns with images and set initial positions
+    columns.forEach((col, colIndex) => {
+      // Get 4 images for this column
+      const columnImages = images.slice(colIndex * 4, (colIndex + 1) * 4);
+      // Create seamless loop
+      const seamlessImages = createSeamlessColumn(columnImages);
+      
+      seamlessImages.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        col.appendChild(img);
+      });
+
+      // Set initial position based on scroll direction
+      const isDownwardScroll = colIndex % 2 === 0; // true for columns 1 and 3
+      if (isDownwardScroll) {
+        // For downward scrolling columns, start from the middle set
+        const singleSetHeight = col.offsetHeight / 3;
+        col.style.transform = `translateY(-${singleSetHeight}px)`;
+      }
+    });
+
+    const gallery = document.getElementById('megh-gallery');
+    let isHovering = false;
+    let scrollInterval;
+    let scrollPositions = columns.map((col, i) => {
+      // Initialize positions based on scroll direction
+      const isDownwardScroll = i % 2 === 0;
+      return isDownwardScroll ? -col.offsetHeight / 3 : 0;
+    });
+    const scrollSpeed = 0.5;
+
+    // Add hover event listeners
+    gallery.addEventListener('mouseenter', () => {
+      isHovering = true;
+      startAutoScroll();
+    });
+
+    gallery.addEventListener('mouseleave', () => {
+      isHovering = false;
+      stopAutoScroll();
+    });
+
+    function startAutoScroll() {
+      if (scrollInterval) return;
+      
+      scrollInterval = setInterval(() => {
+        if (!isHovering) return;
+
+        columns.forEach((col, i) => {
+          const isDownwardScroll = i % 2 === 0;
+          const direction = isDownwardScroll ? 1 : -1;
+          scrollPositions[i] += scrollSpeed * direction;
+          
+          // Get the height of one set of images
+          const singleSetHeight = col.offsetHeight / 3;
+          
+          // Reset position when we've scrolled through one set of images
+          if (isDownwardScroll) {
+            if (scrollPositions[i] >= 0) {
+              scrollPositions[i] = -singleSetHeight;
+            }
+          } else {
+            if (scrollPositions[i] <= -singleSetHeight) {
+              scrollPositions[i] = 0;
+            }
+          }
+          
+          col.style.transform = `translateY(${scrollPo
