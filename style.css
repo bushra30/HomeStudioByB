@@ -3376,3 +3376,16 @@ color: rgb(253, 252, 238);
 .contact-form select {
   border: 1px solid rgba(0, 0, 0, 0.1);  
 }
+select {
+  color: rgba(0, 0, 0, 0.4); /* Default color for selected value */
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+
+select option {
+  color: rgba(0, 0, 0, 1); /* Color for dropdown items */
+}
+
+select option[disabled] {
+  color: rgba(0, 0, 0, 0.4); /* Placeholder option color */
+}
