@@ -575,7 +575,10 @@
   </div>
   <div class="faq-right">
     <div class="faq-item">
-      <button class="faq-question">What services do you offer?<span class="facta">+</span></button>
+      <button class="faq-question">What services do you offer?<span class="facta">  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <line x1="12" y1="5" x2="12" y2="19" stroke="black" stroke-width="2"/>
+        <line x1="5" y1="12" x2="19" y2="12" stroke="black" stroke-width="2"/>
+      </svg></span></button>
       <div class="faq-answer">We offer a wide range of services, including kitchen, bathroom, and bedroom renovations and remodeling, space planning, 3D renderings, material selection, color consultations, lighting design, and full project management from concept to completion.</div>
     </div>
     <div class="faq-item">
@@ -844,6 +847,20 @@
         });
       });
     });
+  </script>
+  <script>
+    document.addEventListener('scroll', () => {
+  const videoSection = document.querySelector('.video-section');
+  const rect = videoSection.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  // Fade out as section scrolls up and leaves the viewport
+  let progress = Math.min(Math.max(0, 1 - rect.top / windowHeight), 1);
+  // let opacity = 1 - progress * 0.8; // fades to 0.2 (adjust as needed)
+
+  videoSection.style.opacity = opacity;
+});
+
   </script>
 </body>
 </html>
