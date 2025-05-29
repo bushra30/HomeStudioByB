@@ -3363,3 +3363,16 @@ color: rgb(253, 252, 238);
   transform: scale(0.97);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder,
+.contact-form select::placeholder {
+  color: rgba(0, 0, 0, 0.4);  /* Lighter black color for placeholder text */
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  border: 1px solid rgba(0, 0, 0, 0.1);  
+}
