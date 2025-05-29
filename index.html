@@ -56,7 +56,7 @@
   }
 
   .megh-overlay-banner {
-    position: sticky;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -64,19 +64,16 @@
     padding: 2rem 3rem;
     border-radius: 14px;
     text-align: center;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     width: fit-content;
     max-width: 80%;
-    /* background-color: rgba(0, 0, 0, 0.7); */
     pointer-events: none;
-    /* mix-blend-mode: difference; */
     margin: 0 auto;
     display: block;
   }
 
   .megh-overlay-banner h2 {
     font-family: "Inter", "Inter Placeholder", sans-serif;
-    font-size: 48px;
+    font-size: 40px;
     font-weight: 700;
     letter-spacing: -0.05em;
     line-height: 1.1em;
@@ -90,21 +87,44 @@
 
   .megh-overlay-banner button {
     pointer-events: auto;
-    padding: 0.75rem 1.5rem;
+    padding: 1.2rem 2.2rem;
     border: none;
-    
     border-radius: 10px;
     cursor: pointer;
     font-size: 1rem;
     transition: all 0.3s ease;
-    padding: 20px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(17, 17, 17);
+    color: rgb(253, 252, 238);
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .megh-overlay-banner button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: -1;
   }
 
   .megh-overlay-banner button:hover {
-    background: #f0f0f0;
+    background-color: rgba(0, 0, 0, 0.9);
     transform: translateY(-2px);
+    box-shadow: 0 6px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .megh-overlay-banner button:active {
+    transform: translateY(0);
   }
 
   @media (max-width: 1024px) {
@@ -364,14 +384,14 @@
   padding: 2rem 3rem;
   border-radius: 14px;
   text-align: center;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  /* box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); */
   width: fit-content;
   max-width: 80%;
   pointer-events: none;
   margin: 0 auto;
   display: block;
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  /* backdrop-filter: blur(10px); */
 }
   </style>
 
@@ -539,7 +559,7 @@
 <div class="megh-gallery-wrapper" id="megh-gallery">
   <div class="megh-overlay-banner">
     <h2>Get inspired by our works</h2>
-    <button>Follow Us On Instagram</button>
+    <button onclick="window.open('https://www.instagram.com/homestudiobyb/?igsh=MWhmaG5pa3R3bHUybQ%3D%3D&utm_source=qr', '_blank')">Follow Us On Instagram</button>
   </div>
   <div class="megh-columns">
     <div class="megh-column" id="megh-col1" style="transform: translateY(-294.5px);"></div>
@@ -790,6 +810,33 @@
         scrollInterval = null;
       }
     }
+  </script>
+
+  <script>
+    // FAQ functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const facta = item.querySelector('.facta');
+        
+        question.addEventListener('click', () => {
+          // Close all other FAQ items
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.classList.remove('active');
+              otherItem.querySelector('.facta').textContent = '+';
+            }
+          });
+          
+          // Toggle current FAQ item
+          item.classList.toggle('active');
+          facta.textContent = item.classList.contains('active') ? '−' : '+';
+        });
+      });
+    });
   </script>
 </body>
 </html>

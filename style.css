@@ -2138,7 +2138,7 @@ margin-bottom: 3rem;
 .faq-section {
 display: flex;
 gap: 3rem;
-padding: 4rem 2rem;
+padding: 18rem 2rem;
 background: #000;
 color: #fff;
 flex-wrap: wrap;
@@ -2152,7 +2152,7 @@ min-width: 250px;
 }
 
 .faq-left h2 {
-font-size: 3rem;
+font-size: 45px;
 font-weight: 700;
 color: rgb(253, 252, 238);
 }
@@ -2166,7 +2166,7 @@ gap: 1rem;
 }
 
 .faq-item {
-background: #1e1e1e;
+/* background: #1e1e1e; */
 border-radius: 10px;
 overflow: hidden;
 transition: none;
@@ -2508,6 +2508,8 @@ padding: 0rem 2rem;
 .faq-answer {
 display: none;
 margin-top: 8px;
+background-color: none
+;
 }
 
 .faq-item.active .faq-answer {
@@ -2523,6 +2525,7 @@ background: none;
 border: none;
 font-size: 20px;
 color: rgb(253, 252, 238);
+background: rgb(33, 31, 30);
 /* font-weight: bold; */
 }
 
