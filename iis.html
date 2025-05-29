@@ -821,4 +821,108 @@
             }
           }
           
-          col.style.transform = `translateY(${scrollPo
+          col.style.transform = `translateY(${scrollPositions[i]}px)`;
+        });
+      }, 30);
+    }
+
+    function stopAutoScroll() {
+      if (scrollInterval) {
+        clearInterval(scrollInterval);
+        scrollInterval = null;
+      }
+    }
+  </script>
+
+  <script>
+    // FAQ functionality
+    // document.addEventListener('DOMContentLoaded', function() {
+    //   const faqItems = document.querySelectorAll('.faq-item');
+      
+    //   faqItems.forEach(item => {
+    //     const question = item.querySelector('.faq-question');
+    //     const answer = item.querySelector('.faq-answer');
+    //     const facta = item.querySelector('.facta');
+        
+    //     question.addEventListener('click', () => {
+    //       // Close all other FAQ items
+    //       faqItems.forEach(otherItem => {
+    //         if (otherItem !== item) {
+    //           otherItem.classList.remove('active');
+    //           otherItem.querySelector('.facta').textContent = '+';
+    //         }
+    //       });
+          
+    //       // Toggle current FAQ item
+    //       item.classList.toggle('active');
+    //       facta.textContent = item.classList.contains('active') ? '−' : '+';
+    //     });
+    //   });
+    // });
+    document.addEventListener('DOMContentLoaded', function() {
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    const facta = item.querySelector('.facta');
+
+    question.addEventListener('click', () => {
+      // Close all others
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('active');
+          otherItem.querySelector('.facta').textContent = '+';
+        }
+      });
+
+      const isActive = item.classList.contains('active');
+      if (!isActive) {
+        item.classList.add('active');
+        facta.textContent = '−';
+      } else {
+        item.classList.remove('active');
+        facta.textContent = '+';
+      }
+    });
+  });
+});
+
+  </script>
+  <script>
+    document.addEventListener('scroll', () => {
+  const videoSection = document.querySelector('.video-section');
+  const rect = videoSection.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  // Fade out as section scrolls up and leaves the viewport
+  let progress = Math.min(Math.max(0, 1 - rect.top / windowHeight), 1);
+  // let opacity = 1 - progress * 0.8; // fades to 0.2 (adjust as needed)
+
+  videoSection.style.opacity = opacity;
+});
+
+  </script>
+  <script>
+    function handleFadeUpOnScroll() {
+  const fadeElem = document.querySelector('.fade-up-on-scroll');
+  if (!fadeElem) return;
+
+  const rect = fadeElem.getBoundingClientRect();
+  const triggerPoint = window.innerHeight * 0.85; // Trigger when 85% of card is visible
+
+  if (rect.top < triggerPoint) {
+    fadeElem.classList.add('visible');
+  } else {
+    fadeElem.classList.remove('visible');
+  }
+}
+
+// Initial check and scroll listener
+window.addEventListener('scroll', handleFadeUpOnScroll);
+window.addEventListener('resize', handleFadeUpOnScroll);
+document.addEventListener('DOMContentLoaded', handleFadeUpOnScroll);
+
+  </script>
+</body>
+</html>
